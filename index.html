@@ -2,10 +2,57 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <title>Мій перший сайт</title>
-</head>
-<body style="font-family: sans-serif; text-align:center; margin-top:50px;">
-  <h1>🚀 Мій сайт працює!</h1>
-  <p>Розміщено на Netlify через GitHub.</p>
-</body>
-</html>
+  <title>Shtory — сучасні штори на замовлення</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #f7f7f7;
+      color: #222;
+    }
+    header {
+      background: url('https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+    }
+    .hero {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    .btn {
+      background: #c9a96a;
+      color: white;
+      padding: 15px 30px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #b38f54;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 32px; }
+      p { font-siz
