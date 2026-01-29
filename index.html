@@ -20,4 +20,158 @@
       --text:#222;
       --muted:#6b6b6b;
       --container:1200px;
-   
+    }
+    *{box-sizing:border-box}
+    body {margin:0;font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+    header{background:linear-gradient(135deg,#222,#555);color:#fff;padding:80px 20px;text-align:center}
+    header h1{font-size:40px;margin:0 0 12px}
+    header p{font-size:18px;opacity:0.95;margin:0}
+    .btn{display:inline-block;margin-top:20px;background:var(--accent);color:#fff;padding:12px 26px;border-radius:28px;text-decoration:none;font-weight:600}
+
+    .section{padding:60px 20px;text-align:center}
+    .section h2{font-size:28px;margin-bottom:10px}
+    .lead{color:var(--muted);max-width:720px;margin:0 auto 24px}
+
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:28px}
+    .card{background:#fff;border-radius:10px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,0.06);text-align:left}
+    .card h3{margin-top:0}
+
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+
+    .cta{background:linear-gradient(90deg,rgba(201,169,106,0.95),rgba(156,121,68,0.95));color:#fff;padding:36px 20px;border-radius:12px;margin:40px 0}
+
+    footer{background:#f7f7f7;padding:26px 20px;text-align:center;color:var(--muted);font-size:14px}
+
+    /* contact form */
+    form.contact{max-width:720px;margin:0 auto;text-align:left}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    label{display:block;font-weight:600;font-size:13px;margin-bottom:6px}
+    input,textarea{width:100%;padding:10px;border:1px solid #e3e3e3;border-radius:8px;font-size:14px}
+    textarea{min-height:120px;resize:vertical}
+    .form-actions{margin-top:12px;text-align:right}
+
+    @media (max-width:600px){header{padding:48px 16px}header h1{font-size:28px}.form-row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Штори на замовлення</h1>
+    <p>Індивідуальний дизайн • Пошив • Монтаж • Виїзд замірювача</p>
+    <a class="btn" href="#contact">Отримати консультацію</a>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <h2>Чому обирають нас</h2>
+    <p class="lead">Професійний підхід на всіх етапах: дизайн інтер'єру, підбір тканин, точні заміри та якісний монтаж. Працюємо з сучасними матеріалами, надаємо гарантію.</p>
+
+    <div class="services">
+      <div class="card">
+        <h3>Індивідуальний дизайн</h3>
+        <p>Розробляємо концепцію штор з урахуванням стилю приміщення та ваших побажань.</p>
+      </div>
+      <div class="card">
+        <h3>Пошив під замовлення</h3>
+        <p>Точна робота на сучасному обладнанні. Оперативні строки та контроль як��сті.</p>
+      </div>
+      <div class="card">
+        <h3>Монтаж та сервіс</h3>
+        <p>Професійна установка карнизів та механізмів. Налаштування та інструктаж.</p>
+      </div>
+      <div class="card">
+        <h3>Виїзд замірювача</h3>
+        <p>Безкоштовна консультація на місці з попереднім розрахунком вартості.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="gallery-heading">
+  <div class="container">
+    <h2 id="gallery-heading">Приклади робіт</h2>
+    <p class="lead">Ось кілька прикладів штор і жалюзі, які ми виготовили для клієнтів.</p>
+    <div class="gallery" aria-hidden="false">
+      <img src="https://images.unsplash.com/photo-1549187774-b4e9db02d50f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Приклад штор 1" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1505691723518-36a2b0b0a7d8?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Приклад штор 2" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Пр��клад штор 3" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1505691723518-36a2b0b0a7d8?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Приклад штор 4" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta">
+      <h2>Безкоштовна консультація та розрахунок</h2>
+      <p class="lead">Залиште заявку — ми зв'яжемося і домовимось про зручний час для виїзду замірювача.</p>
+      <a class="btn" href="#contact">Залишити заявку</a>
+    </div>
+
+    <h2 id="contact">Контакти</h2>
+    <p class="lead">Зателефонуйте або напишіть нам у месенджер. Також можна надіслати повідомлення через форму нижче.</p>
+
+    <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:center;justify-content:center;margin-bottom:18px">
+      <div style="text-align:center">
+        <div style="font-weight:700">Телефон</div>
+        <a href="tel:+380971628049">+38 (097) 162 80 49</a>
+      </div>
+      <div style="text-align:center">
+        <div style="font-weight:700">Email</div>
+        <a href="mailto:tetanaa597@gmail.com">tetanaa597@gmail.com</a>
+      </div>
+    </div>
+
+    <form class="contact" onsubmit="return sendMail(event)" novalidate>
+      <div class="form-row">
+        <div>
+          <label for="name">Ім'я</label>
+          <input id="name" name="name" type="text" required>
+        </div>
+        <div>
+          <label for="phone">Телефон</label>
+          <input id="phone" name="phone" type="tel" required>
+        </div>
+      </div>
+      <div style="margin-top:12px">
+        <label for="message">Повідомлення</label>
+        <textarea id="message" name="message" required placeholder="Коротко опишіть запит (наприклад: кімната, бажана тканина, терміни)"></textarea>
+      </div>
+      <div class="form-actions">
+        <button class="btn" type="submit">Відправити</button>
+      </div>
+    </form>
+
+    <script>
+      function sendMail(e){
+        e.preventDefault();
+        var name = document.getElementById('name').value.trim();
+        var phone = document.getElementById('phone').value.trim();
+        var message = document.getElementById('message').value.trim();
+        if(!name || !phone || !message){
+          alert('Будь ласка, заповніть усі поля.');
+          return false;
+        }
+        var subject = encodeURIComponent('Заявка з сайту: ' + name);
+        var body = encodeURIComponent('Ім\'я: ' + name + '\nТелефон: ' + phone + '\n\nПовідомлення:\n' + message);
+        window.location.href = 'mailto:tetanaa597@gmail.com?subject=' + subject + '&body=' + body;
+        return false;
+      }
+    </script>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div style="font-weight:700">Shtory — сучасні штори</div>
+    <div>© 2026 Все права захищені</div>
+  </div>
+</footer>
+
+</body>
+</html>
