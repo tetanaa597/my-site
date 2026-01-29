@@ -5,6 +5,8 @@
   <title>Shtory — сучасні штори на замовлення</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Індивідуальні штори та жалюзі: дизайн, пошив, монтаж. Безкоштовна консультація, виїзд замірювача, виготовлення під замовлення.">
+  <meta name="keywords" content="штори, штори на замовлення, пошив штор, купити штори, гардини, портьєри, жалюзі, рулонні штори, римські штори, вертикальні жалюзі, горизонтальні жалюзі, штори для вітальні, штори для спальні, карнизи, штори під замовлення, дизайн штор, тканини для штор, швейний сервіс">
+  <link rel="canonical" href="https://tetanaa597.github.io/my-site/">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Рекомендовані рядки для <head> -->
@@ -68,6 +70,25 @@
 
     @media (max-width:600px){header{padding:48px 16px}header h1{font-size:28px}.form-row{grid-template-columns:1fr}}
   </style>
+
+  <!-- Structured data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Shtory — сучасні штори",
+    "description": "Індивідуальні штори та жалюзі: дизайн, пошив, монтаж. Виїзд замірювача, консультації.",
+    "url": "https://tetanaa597.github.io/my-site/",
+    "telephone": "+380971628049",
+    "email": "tetanaa597@gmail.com",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Ukraine"
+    },
+    "keywords": ["штори","штори на замовлення","пошив штор","жалюзі","рулонні штори","римські штори","купити штори","портьєри","гардини","карнизи","штори для вітальні","штори для спальні"],
+    "sameAs": []
+  }
+  </script>
 </head>
 <body>
 
@@ -87,7 +108,7 @@
     <div class="services">
       <div class="card">
         <h3>Індивідуальний дизайн</h3>
-        <p>Розробляємо концепцію штор з урахуванням стилю приміщення та ваших побажань.</p>
+        <p>Розробляємо концепцію штор з урахуванням стилю приміщенн�� та ваших побажань.</p>
       </div>
       <div class="card">
         <h3>Пошив під замовлення</h3>
@@ -95,13 +116,19 @@
       </div>
       <div class="card">
         <h3>Монтаж та сервіс</h3>
-        <p>Професійна установка карнизів та механізмів. Налаштування та інструктаж.</p>
+        <p>Професійна установ��а карнизів та механізмів. Налаштування та інструктаж.</p>
       </div>
       <div class="card">
         <h3>Виїзд замірювача</h3>
         <p>Безкоштовна консультація на місці з попереднім розрахунком вартості.</p>
       </div>
     </div>
+
+    <!-- SEO-friendly natural text with keyword variants -->
+    <p class="lead" style="margin-top:18px;">
+      Ми виготовляємо штори на замовлення, пошив штор, портьєри та гардини, рулонні та римські штори, вертикальні й горизонтальні жалюзі. Підіб'ємо тканини, встановимо карнизи і забезпечимо сервіс з монтажу. Якщо ви шукаєте "купити штори", "штори для вітальні", "штори для спальні" або "штори під замовлення" — звертайтеся, щоб отримати професійну консультацію.
+    </p>
+
   </div>
 </section>
 
@@ -171,7 +198,7 @@
           return false;
         }
         var subject = encodeURIComponent('Заявка з сайту: ' + name);
-        var body = encodeURIComponent('Ім\'я: ' + name + '\nТелефон: ' + phone + '\n\nПовідомлення:\n' + message);
+        var body = encodeURIComponent('Ім\'я: ' + name + '\\nТелефон: ' + phone + '\\n\\nПовідомлення:\\n' + message);
         window.location.href = 'mailto:tetanaa597@gmail.com?subject=' + subject + '&body=' + body;
         return false;
       }
