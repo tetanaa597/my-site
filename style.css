@@ -296,3 +296,28 @@ footer{
   border-radius:10px;
   box-shadow:0 10px 40px rgba(0,0,0,.5);
 }
+
+/* ===== Lightbox navigation ===== */
+
+.lightbox .nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:40px;
+  color:#fff;
+  padding:12px;
+  cursor:pointer;
+  user-select:none;
+}
+
+.lightbox .prev{
+  left:30px;
+}
+
+.lightbox .next{
+  right:30px;
+}
+
+.lightbox .nav:hover{
+  opacity:0.7;
+}
