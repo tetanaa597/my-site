@@ -82,15 +82,12 @@ header p{
   background:var(--bg-soft);
 }
 
-.section h2{
-  font-size:28px;
-  margin-bottom:10px;
+.cta h2{
+  font-size:40px;
 }
 
-.lead{
-  color:var(--muted);
-  max-width:760px;
-  margin:0 auto 24px;
+.cta .lead{
+  font-size:22px;
 }
 
 /* ===== Services ===== */
