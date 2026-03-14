@@ -146,7 +146,13 @@
 <a class="chat-button" href="#contact">💬</a>
 
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img" src="" alt="Фото">
+
+<span class="nav prev" onclick="prevImage(event)">❮</span>
+
+<img id="lightbox-img" src="" alt="Фото">
+
+<span class="nav next" onclick="nextImage(event)">❯</span>
+
 </div>
 
 <script>
