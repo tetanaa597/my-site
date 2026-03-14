@@ -80,11 +80,11 @@
 
 <div class="gallery">
 
-<img src="images/shtory1.jpg" alt="Штори1" loading="lazy">
-<img src="images/shtory2.jpg" alt="Штори2" loading="lazy">
-<img src="images/shtory3.jpg" alt="Штори3" loading="lazy">
-<img src="images/shtory4.jpg" alt="Штори4" loading="lazy">
-<img src="images/shtory5.jpg" alt="Штори5" loading="lazy">
+<img src="images/shtory1.jpg" alt="Штори1" loading="lazy" onclick="openLightbox(this)">
+<img src="images/shtory2.jpg" alt="Штори2" loading="lazy" onclick="openLightbox(this)">
+<img src="images/shtory3.jpg" alt="Штори3" loading="lazy" onclick="openLightbox(this)">
+<img src="images/shtory4.jpg" alt="Штори4" loading="lazy" onclick="openLightbox(this)">
+<img src="images/shtory5.jpg" alt="Штори5" loading="lazy" onclick="openLightbox(this)">
 
 </div>
 
@@ -144,6 +144,24 @@
 </footer>
 
 <a class="chat-button" href="#contact">💬</a>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="Фото">
+</div>
+
+<script>
+function openLightbox(img){
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  lightbox.style.display = "flex";
+  lightboxImg.src = img.src;
+}
+
+function closeLightbox(){
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
 
 </body>
 </html>
