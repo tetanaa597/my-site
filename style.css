@@ -230,3 +230,48 @@ footer{
 
 }
 ```
+
+
+/* ===== Contact Layout ===== */
+
+.contact-box{
+  max-width:520px;
+  margin:30px auto;
+  background:#fff;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
+  padding:10px 0;
+}
+
+.contact-item{
+  padding:18px 26px;
+  border-bottom:1px solid #f1f1f1;
+}
+
+.contact-item:last-child{
+  border-bottom:none;
+}
+
+.contact-title{
+  font-size:14px;
+  font-weight:600;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+
+.contact-item a{
+  font-size:17px;
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:600;
+}
+
+.contact-item a:hover{
+  color:var(--accent-dark);
+}
+
+.contact-item p{
+  margin:0;
+  line-height:1.5;
+  color:var(--text);
+}
