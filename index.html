@@ -3,17 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Shtory — сучасні штори на замовлення</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <meta name="description" content="Індивідуальні штори та жалюзі: дизайн, пошив, монтаж. Безкоштовна консультація, виїзд дизайнера">
 <meta name="keywords" content="штори, штори на замовлення, пошив штор, гардини, портьєри, жалюзі">
 
 <link rel="canonical" href="https://shtory.netlify.app">
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#c9a96a">
 
 <meta property="og:type" content="website">
@@ -21,6 +22,120 @@
 <meta property="og:description" content="Індивідуальні штори та жалюзі: дизайн, пошив, монтаж.">
 <meta property="og:image" content="https://images.unsplash.com/photo-1549187774-b4e9db02d50f?q=80&w=1200&auto=format&fit=crop">
 <meta property="og:url" content="https://shtory.netlify.app">
+
+<style>
+/* Додаткові адаптивні покращення */
+html{
+  scroll-behavior:smooth;
+}
+
+img{
+  max-width:100%;
+  height:auto;
+}
+
+header h1{
+  font-size:clamp(32px, 6vw, 52px);
+  line-height:1.1;
+}
+
+header p{
+  font-size:clamp(16px, 2.8vw, 24px);
+}
+
+.section h2{
+  font-size:clamp(26px, 4vw, 40px);
+}
+
+.lead{
+  font-size:clamp(15px, 2vw, 22px);
+  line-height:1.6;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+
+.contact-box{
+  width:100%;
+  max-width:680px;
+  margin:auto;
+}
+
+/* Планшет */
+@media (max-width:992px){
+  .section{
+    padding:56px 18px;
+  }
+
+  .gallery{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+/* Телефон вертикально */
+@media (max-width:768px){
+  header{
+    padding:64px 16px;
+  }
+
+  .section{
+    padding:48px 16px;
+  }
+
+  .gallery,
+  .services{
+    grid-template-columns:1fr;
+  }
+
+  .chat-button{
+    right:18px;
+    bottom:18px;
+  }
+}
+
+/* Телефон горизонтально */
+@media (max-width:900px) and (orientation:landscape){
+  header{
+    padding:36px 16px;
+  }
+
+  header h1{
+    font-size:34px;
+  }
+
+  header p{
+    font-size:16px;
+  }
+
+  .section{
+    padding:34px 16px;
+  }
+
+  .gallery{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .services{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+/* Великі екрани */
+@media (min-width:1400px){
+  .container{
+    max-width:1320px;
+  }
+}
+</style>
 
 </head>
 
@@ -133,6 +248,8 @@
 </div>
 
 </div>
+
+</div>
 </section>
 
 <footer>
@@ -157,7 +274,6 @@
 </div>
 
 <script>
-
 let currentIndex = 0;
 let images = [];
 
@@ -170,10 +286,14 @@ function openLightbox(img){
 
   lightbox.style.display = "flex";
   lightboxImg.src = img.src;
+
+  document.body.style.overflow = "hidden";
 }
 
-function closeLightbox(){
+function closeLightbox(e){
+  if(e){ e.stopPropagation(); }
   document.getElementById("lightbox").style.display = "none";
+  document.body.style.overflow = "";
 }
 
 function nextImage(e){
@@ -188,6 +308,16 @@ function prevImage(e){
   document.getElementById("lightbox-img").src = images[currentIndex].src;
 }
 
+/* Клавіатура */
+document.addEventListener("keydown", function(e){
+  const lightbox = document.getElementById("lightbox");
+
+  if(lightbox.style.display === "flex"){
+    if(e.key === "ArrowRight") nextImage(e);
+    if(e.key === "ArrowLeft") prevImage(e);
+    if(e.key === "Escape") closeLightbox();
+  }
+});
 </script>
 
 </body>
