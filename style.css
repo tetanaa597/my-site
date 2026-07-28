@@ -410,33 +410,39 @@ header .container{
 
     justify-content:center;
 
-    gap:16px;
+    gap:22px;
 
-    margin-bottom:26px;
+    margin:0 auto 16px;
 
-background:linear-gradient(
-    180deg,
-    #fff7d8,
-    #e7cb8d,
-    #c9a96a
-);
-
--webkit-background-clip:text;
-background-clip:text;
-color:transparent;
-   
-    font-size:1rem;
+    font-size:clamp(1.8rem,3.8vw,3rem);
 
     font-weight:700;
 
-    letter-spacing:.55rem;
+    line-height:1;
+
+    letter-spacing:.32em;
 
     text-transform:uppercase;
 
+    background:linear-gradient(
+        180deg,
+        #fffdf6 0%,
+        #f3dfb0 35%,
+        #dcc082 70%,
+        #c9a96a 100%
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
     text-shadow:
-        0 2px 12px rgba(0,0,0,.25);
+        0 3px 20px rgba(0,0,0,.18);
 
     animation:fadeUp .6s ease both;
+
+    user-select:none;
 
 }
 
@@ -445,27 +451,106 @@ color:transparent;
 
     content:"";
 
-    width:60px;
+    width:clamp(60px,8vw,110px);
 
-    height:1px;
+    height:2px;
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.7)
-        );
+    border-radius:999px;
+
+    opacity:.9;
+
+}
+
+.brand::before{
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.85),
+        var(--accent-light)
+    );
 
 }
 
 .brand::after{
 
-    background:
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.7),
-            transparent
-        );
+    background:linear-gradient(
+        90deg,
+        var(--accent-light),
+        rgba(255,255,255,.85),
+        transparent
+    );
+
+}
+
+/* ==========================================================
+   HERO IMPROVEMENTS
+========================================================== */
+
+header h1{
+
+    margin-bottom:30px;
+
+    text-wrap:balance;
+
+}
+
+header p{
+
+    margin-top:0;
+
+    margin-bottom:8px;
+
+    max-width:760px;
+
+    text-wrap:pretty;
+
+}
+
+.btn{
+
+    margin-top:44px;
+
+    min-width:320px;
+
+    min-height:60px;
+
+    font-size:1rem;
+
+    letter-spacing:.04em;
+
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width:768px){
+
+    .brand{
+
+        font-size:clamp(1.5rem,7vw,2.2rem);
+
+        gap:14px;
+
+        letter-spacing:.22em;
+
+        margin-bottom:14px;
+
+    }
+
+    .brand::before,
+    .brand::after{
+
+        width:40px;
+
+    }
+
+    .btn{
+
+        min-width:100%;
+
+    }
 
 }
 
