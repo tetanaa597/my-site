@@ -349,8 +349,6 @@ onclick="openPortfolio('kids')">
 <script>
 let currentIndex = 0;
 
-let images = [];
-
 let currentPortfolio = [];
 
 let touchStartX = 0;
@@ -471,24 +469,19 @@ function openPortfolio(type){
 
 
 function closeLightbox(e){
-  if(e){ e.stopPropagation(); }
-  document.getElementById("lightbox").style.display = "none";
-  document.body.style.overflow = "";
-}
 
-if(currentPortfolio.length){
+    if(e){
+        e.stopPropagation();
+    }
 
-document.getElementById("lightbox-img").src =
-currentPortfolio[currentIndex];
+    currentPortfolio = [];
 
-}
+    document.getElementById("lightbox").style.display = "none";
 
-else{
-
-document.getElementById("lightbox-img").src =
-images[currentIndex].src;
+    document.body.style.overflow = "";
 
 }
+
 
 /* Клавіатура */
 document.addEventListener("keydown", function(e){
@@ -505,19 +498,18 @@ function prevImage(e){
 
     e.stopPropagation();
 
+    if(!currentPortfolio.length) return;
+
     currentIndex =
     (currentIndex - 1 + currentPortfolio.length)
     % currentPortfolio.length;
 
-
     document.getElementById("lightbox-img").src =
     currentPortfolio[currentIndex];
-
 
     updateCounter();
 
 }
-
 function nextImage(e){
 
     e.stopPropagation();
