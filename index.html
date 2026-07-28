@@ -272,6 +272,9 @@ onclick="openPortfolio('kids')">
 </div>
 
 </section>
+
+<section class="section">
+
 <div class="container">
 
 <div class="cta">
@@ -335,6 +338,10 @@ onclick="openPortfolio('kids')">
 
 <img id="lightbox-img" src="" alt="Фото">
 
+<div id="lightbox-counter">
+1 / 1
+</div>
+
 <span class="nav next" onclick="nextImage(event)">❯</span>
 
 </div>
@@ -345,6 +352,9 @@ let currentIndex = 0;
 let images = [];
 
 let currentPortfolio = [];
+
+let touchStartX = 0;
+let touchEndX = 0;
 
 const portfolios = {
 
@@ -414,6 +424,22 @@ kids:[
 
 };
 
+
+function updateCounter(){
+
+    const counter =
+    document.getElementById("lightbox-counter");
+
+
+    if(counter && currentPortfolio.length){
+
+        counter.innerText =
+        `${currentIndex + 1} / ${currentPortfolio.length}`;
+
+    }
+
+}
+
 function openPortfolio(type){
 
     currentPortfolio = portfolios[type];
@@ -429,7 +455,11 @@ function openPortfolio(type){
     document.getElementById("lightbox-img");
 
 
-    img.src = currentPortfolio[currentIndex];
+    img.src =
+    currentPortfolio[currentIndex];
+
+
+    updateCounter();
 
 
     lightbox.style.display="flex";
@@ -438,38 +468,12 @@ function openPortfolio(type){
     document.body.style.overflow="hidden";
 
 }
-  
-function openLightbox(img){
-  images = Array.from(document.querySelectorAll(".gallery img"));
-  currentIndex = images.indexOf(img);
 
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-
-  lightbox.style.display = "flex";
-  lightboxImg.src = img.src;
-
-  document.body.style.overflow = "hidden";
-}
 
 function closeLightbox(e){
   if(e){ e.stopPropagation(); }
   document.getElementById("lightbox").style.display = "none";
   document.body.style.overflow = "";
-}
-
-if(currentPortfolio.length){
-
-document.getElementById("lightbox-img").src =
-currentPortfolio[currentIndex];
-
-}
-
-else{
-
-document.getElementById("lightbox-img").src =
-images[currentIndex].src;
-
 }
 
 if(currentPortfolio.length){
@@ -496,6 +500,43 @@ document.addEventListener("keydown", function(e){
     if(e.key === "Escape") closeLightbox();
   }
 });
+
+function prevImage(e){
+
+    e.stopPropagation();
+
+    currentIndex =
+    (currentIndex - 1 + currentPortfolio.length)
+    % currentPortfolio.length;
+
+
+    document.getElementById("lightbox-img").src =
+    currentPortfolio[currentIndex];
+
+
+    updateCounter();
+
+}
+
+function nextImage(e){
+
+    e.stopPropagation();
+
+    if(!currentPortfolio.length) return;
+
+
+    currentIndex =
+    (currentIndex + 1)
+    % currentPortfolio.length;
+
+
+    document.getElementById("lightbox-img").src =
+    currentPortfolio[currentIndex];
+
+
+    updateCounter();
+
+}
 </script>
 
 </body>
