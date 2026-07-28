@@ -399,6 +399,68 @@ header .container{
 }
 
 /* ==========================================================
+   BRAND
+========================================================== */
+
+.brand{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:16px;
+
+    margin-bottom:26px;
+
+    color:var(--accent-light);
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    letter-spacing:.55rem;
+
+    text-transform:uppercase;
+
+    text-shadow:
+        0 2px 12px rgba(0,0,0,.25);
+
+    animation:fadeUp .6s ease both;
+
+}
+
+.brand::before,
+.brand::after{
+
+    content:"";
+
+    width:60px;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.7)
+        );
+
+}
+
+.brand::after{
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.7),
+            transparent
+        );
+
+}
+
+/* ==========================================================
    HERO TYPOGRAPHY
 ========================================================== */
 
