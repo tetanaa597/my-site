@@ -341,8 +341,104 @@ onclick="openPortfolio('kids')">
 
 <script>
 let currentIndex = 0;
+
 let images = [];
 
+let currentPortfolio = [];
+
+const portfolios = {
+
+
+living:[
+
+"images/portfolio/living/living-01.jpg",
+
+"images/portfolio/living/living-02.jpg",
+
+"images/portfolio/living/living-03.jpg",
+
+"images/portfolio/living/living-04.jpg",
+
+"images/portfolio/living/living-05.jpg"
+
+],
+
+
+
+bedroom:[
+
+"images/portfolio/bedroom/bedroom-01.jpg",
+
+"images/portfolio/bedroom/bedroom-02.jpg",
+
+"images/portfolio/bedroom/bedroom-03.jpg",
+
+"images/portfolio/bedroom/bedroom-04.jpg",
+
+"images/portfolio/bedroom/bedroom-05.jpg"
+
+],
+
+
+
+kitchen:[
+
+"images/portfolio/kitchen/kitchen-01.jpg",
+
+"images/portfolio/kitchen/kitchen-02.jpg",
+
+"images/portfolio/kitchen/kitchen-03.jpg",
+
+"images/portfolio/kitchen/kitchen-04.jpg",
+
+"images/portfolio/kitchen/kitchen-05.jpg"
+
+],
+
+
+
+kids:[
+
+"images/portfolio/kids/kids-01.jpg",
+
+"images/portfolio/kids/kids-02.jpg",
+
+"images/portfolio/kids/kids-03.jpg",
+
+"images/portfolio/kids/kids-04.jpg",
+
+"images/portfolio/kids/kids-05.jpg"
+
+]
+
+
+};
+
+function openPortfolio(type){
+
+    currentPortfolio = portfolios[type];
+
+    currentIndex = 0;
+
+
+    const lightbox =
+    document.getElementById("lightbox");
+
+
+    const img =
+    document.getElementById("lightbox-img");
+
+
+    img.src = currentPortfolio[currentIndex];
+
+
+    lightbox.style.display="flex";
+
+
+    document.body.style.overflow="hidden";
+
+}
+  
 function openLightbox(img){
   images = Array.from(document.querySelectorAll(".gallery img"));
   currentIndex = images.indexOf(img);
@@ -362,16 +458,32 @@ function closeLightbox(e){
   document.body.style.overflow = "";
 }
 
-function nextImage(e){
-  e.stopPropagation();
-  currentIndex = (currentIndex + 1) % images.length;
-  document.getElementById("lightbox-img").src = images[currentIndex].src;
+if(currentPortfolio.length){
+
+document.getElementById("lightbox-img").src =
+currentPortfolio[currentIndex];
+
 }
 
-function prevImage(e){
-  e.stopPropagation();
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  document.getElementById("lightbox-img").src = images[currentIndex].src;
+else{
+
+document.getElementById("lightbox-img").src =
+images[currentIndex].src;
+
+}
+
+if(currentPortfolio.length){
+
+document.getElementById("lightbox-img").src =
+currentPortfolio[currentIndex];
+
+}
+
+else{
+
+document.getElementById("lightbox-img").src =
+images[currentIndex].src;
+
 }
 
 /* Клавіатура */
