@@ -414,8 +414,17 @@ header .container{
 
     margin-bottom:26px;
 
-    color:var(--accent-light);
+background:linear-gradient(
+    180deg,
+    #fff7d8,
+    #e7cb8d,
+    #c9a96a
+);
 
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+   
     font-size:1rem;
 
     font-weight:700;
