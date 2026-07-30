@@ -2244,7 +2244,7 @@ body{
 
     font-family:"Montserrat",sans-serif;
 
-    font-size:clamp(3.4rem,9vw,6.8rem);
+    font-size: 90px;
 
     font-weight:700;
 
