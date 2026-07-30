@@ -410,27 +410,28 @@ header .container{
 
     justify-content:center;
 
-    gap:22px;
+    gap:26px;
 
-    margin:0 auto 16px;
+    margin:0 auto 28px;
 
-    font-size:clamp(1.8rem,3.8vw,3rem);
+    font-size:clamp(3rem,7vw,5.8rem);
 
     font-weight:700;
 
     line-height:1;
 
-    letter-spacing:.32em;
+    letter-spacing:.34em;
 
     text-transform:uppercase;
 
-    background:linear-gradient(
-        180deg,
-        #fffdf6 0%,
-        #f3dfb0 35%,
-        #dcc082 70%,
-        #c9a96a 100%
-    );
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f8edd0 30%,
+            #e4c98f 65%,
+            #c9a96a 100%
+        );
 
     -webkit-background-clip:text;
     background-clip:text;
@@ -438,9 +439,9 @@ header .container{
     color:transparent;
 
     text-shadow:
-        0 3px 20px rgba(0,0,0,.18);
+        0 8px 30px rgba(0,0,0,.30);
 
-    animation:fadeUp .6s ease both;
+    animation:fadeUp .8s ease both;
 
     user-select:none;
 
@@ -451,7 +452,7 @@ header .container{
 
     content:"";
 
-    width:clamp(60px,8vw,110px);
+    width:clamp(90px,10vw,170px);
 
     height:2px;
 
@@ -463,23 +464,25 @@ header .container{
 
 .brand::before{
 
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.85),
-        var(--accent-light)
-    );
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.95),
+            var(--accent-light)
+        );
 
 }
 
 .brand::after{
 
-    background:linear-gradient(
-        90deg,
-        var(--accent-light),
-        rgba(255,255,255,.85),
-        transparent
-    );
+    background:
+        linear-gradient(
+            90deg,
+            var(--accent-light),
+            rgba(255,255,255,.95),
+            transparent
+        );
 
 }
 
@@ -529,26 +532,20 @@ header p{
 
     .brand{
 
-        font-size:clamp(1.5rem,7vw,2.2rem);
+        font-size:clamp(2.4rem,10vw,3.6rem);
 
         gap:14px;
 
         letter-spacing:.22em;
 
-        margin-bottom:14px;
+        margin-bottom:22px;
 
     }
 
     .brand::before,
     .brand::after{
 
-        width:40px;
-
-    }
-
-    .btn{
-
-        min-width:100%;
+        width:55px;
 
     }
 
