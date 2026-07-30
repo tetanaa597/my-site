@@ -438,32 +438,6 @@ header p{
 
 }
 
-/* ==========================================================
-   MOBILE
-========================================================== */
-
-@media (max-width:768px){
-
-    .brand{
-
-        font-size:clamp(2.4rem,10vw,3.6rem);
-
-        gap:14px;
-
-        letter-spacing:.22em;
-
-        margin-bottom:22px;
-
-    }
-
-    .brand::before,
-    .brand::after{
-
-        width:55px;
-
-    }
-
-}
 
 /* ==========================================================
    HERO TYPOGRAPHY
@@ -2253,33 +2227,183 @@ body{
 
 }
 
+
 /* ==========================================================
-   FINAL BRAND SIZE OVERRIDE
+   TAYANA BRAND
 ========================================================== */
 
-header .brand{
+.brand{
 
-    font-size:clamp(3rem,7vw,5.5rem) !important;
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin:0 auto 26px;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:clamp(3.4rem,9vw,6.8rem);
 
     font-weight:700;
 
-    letter-spacing:.42em;
-
-    margin-bottom:28px;
-
     line-height:1;
+
+    letter-spacing:.28em;
+
+    text-transform:uppercase;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffef9 0%,
+            #f8e8c0 25%,
+            #dfc58d 60%,
+            #c9a96a 100%
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    text-shadow:
+        0 8px 30px rgba(0,0,0,.25);
+
+    user-select:none;
+
+    animation:fadeUp .8s ease both;
+
+    position:relative;
 
 }
 
-@media (max-width:768px){
 
-    header .brand{
+/* декоративні лінії */
 
-        font-size:clamp(2.4rem,10vw,3.6rem) !important;
+.brand::before,
+.brand::after{
 
-        letter-spacing:.24em;
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    width:120px;
+
+    height:2px;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.9),
+            var(--accent-light)
+        );
+
+    opacity:.85;
+
+}
+
+.brand::before{
+
+    right:100%;
+
+    margin-right:28px;
+
+}
+
+.brand::after{
+
+    left:100%;
+
+    margin-left:28px;
+
+    transform:scaleX(-1);
+
+}
+
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width:992px){
+
+    .brand{
+
+        font-size:clamp(2.8rem,10vw,5rem);
+
+        letter-spacing:.22em;
+
+        margin-bottom:22px;
+
+    }
+
+    .brand::before,
+    .brand::after{
+
+        width:80px;
 
     }
 
 }
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width:768px){
+
+    .brand{
+
+        font-size:clamp(2.3rem,12vw,3.6rem);
+
+        letter-spacing:.16em;
+
+        margin-bottom:18px;
+
+    }
+
+    .brand::before,
+    .brand::after{
+
+        width:42px;
+
+        margin-inline:14px;
+
+    }
+
+}
+
+
+/* ==========================================================
+   SMALL PHONE
+========================================================== */
+
+@media (max-width:480px){
+
+    .brand{
+
+        font-size:2.2rem;
+
+        letter-spacing:.12em;
+
+    }
+
+    .brand::before,
+    .brand::after{
+
+        display:none;
+
+    }
+
+}
+
+
 
