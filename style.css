@@ -398,93 +398,7 @@ header .container{
 
 }
 
-/* ==========================================================
-   BRAND
-========================================================== */
 
-.brand{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:26px;
-
-    margin:0 auto 28px;
-
-    font-size:clamp(3rem,7vw,5.8rem);
-
-    font-weight:700;
-
-    line-height:1;
-
-    letter-spacing:.34em;
-
-    text-transform:uppercase;
-
-    background:
-        linear-gradient(
-            180deg,
-            #ffffff 0%,
-            #f8edd0 30%,
-            #e4c98f 65%,
-            #c9a96a 100%
-        );
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
-
-    text-shadow:
-        0 8px 30px rgba(0,0,0,.30);
-
-    animation:fadeUp .8s ease both;
-
-    user-select:none;
-
-}
-
-.brand::before,
-.brand::after{
-
-    content:"";
-
-    width:clamp(90px,10vw,170px);
-
-    height:2px;
-
-    border-radius:999px;
-
-    opacity:.9;
-
-}
-
-.brand::before{
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.95),
-            var(--accent-light)
-        );
-
-}
-
-.brand::after{
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--accent-light),
-            rgba(255,255,255,.95),
-            transparent
-        );
-
-}
 
 /* ==========================================================
    HERO IMPROVEMENTS
@@ -2340,39 +2254,20 @@ body{
 }
 
 /* ==========================================================
-   BRAND OVERRIDE
+   FINAL BRAND SIZE OVERRIDE
 ========================================================== */
 
 header .brand{
 
-    display:block;
+    font-size:clamp(3rem,7vw,5.5rem) !important;
 
-    margin:0 auto 22px;
+    font-weight:700;
 
-    font-size:clamp(3rem,8vw,5.8rem);
+    letter-spacing:.42em;
 
-    font-weight:800;
+    margin-bottom:28px;
 
     line-height:1;
-
-    letter-spacing:.34em;
-
-    text-transform:uppercase;
-
-    background:linear-gradient(
-        180deg,
-        #fffef9 0%,
-        #f8ebc9 25%,
-        #e7cb91 55%,
-        #c9a96a 100%
-    );
-
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-
-    text-shadow:
-        0 8px 25px rgba(0,0,0,.25);
 
 }
 
@@ -2380,12 +2275,11 @@ header .brand{
 
     header .brand{
 
-        font-size:clamp(2.5rem,12vw,4rem);
+        font-size:clamp(2.4rem,10vw,3.6rem) !important;
 
         letter-spacing:.24em;
 
     }
 
 }
-
 
