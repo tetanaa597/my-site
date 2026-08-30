@@ -1,6 +1,6 @@
 /* =========================================================
    TAYANA — PREMIUM DARK INTERIOR DESIGN
-   Redesigned to match the approved luxury mockup
+   Clean stylesheet for the approved luxury layout
 ========================================================= */
 
 :root {
@@ -21,9 +21,7 @@
     --transition: .4s cubic-bezier(.2,.7,.2,1);
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -35,12 +33,14 @@ html {
 }
 
 body {
+    min-width: 320px;
     font-family: "Montserrat", sans-serif;
     color: var(--text);
     background: var(--black);
     line-height: 1.7;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 body.menu-open,
@@ -63,17 +63,26 @@ button {
     font: inherit;
 }
 
+button,
+[role="button"] {
+    -webkit-tap-highlight-color: transparent;
+}
+
 .container {
     width: min(100% - 56px, var(--container));
     margin-inline: auto;
 }
 
 /* =========================================================
-   GLOBAL DECORATION
+   SECTIONS / TYPOGRAPHY
 ========================================================= */
 
-.section-dark {
+.section {
     position: relative;
+    padding: 130px 0;
+}
+
+.section-dark {
     background:
         radial-gradient(circle at 10% 15%, rgba(216,179,106,.06), transparent 30%),
         radial-gradient(circle at 90% 80%, rgba(216,179,106,.045), transparent 32%),
@@ -92,9 +101,15 @@ button {
     mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
 }
 
-.section {
+.section > .container {
     position: relative;
-    padding: 130px 0;
+    z-index: 2;
+}
+
+.section-heading {
+    max-width: 900px;
+    margin: 0 auto 70px;
+    text-align: center;
 }
 
 .eyebrow {
@@ -104,12 +119,6 @@ button {
     font-weight: 600;
     letter-spacing: .28em;
     text-transform: uppercase;
-}
-
-.section-heading {
-    max-width: 900px;
-    margin: 0 auto 70px;
-    text-align: center;
 }
 
 .section-heading h2 {
@@ -153,7 +162,7 @@ button {
     display: flex;
     align-items: center;
     overflow: hidden;
-    background: #080706;
+    background: var(--black);
 }
 
 .hero-image {
@@ -200,17 +209,21 @@ button {
     animation: glowMoveReverse 16s ease-in-out infinite alternate;
 }
 
+/* =========================================================
+   TOP BAR
+========================================================= */
+
 .topbar {
     position: absolute;
     top: 0;
     left: 50%;
-    transform: translateX(-50%);
     z-index: 10;
     width: min(100% - 56px, var(--container));
     height: 105px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transform: translateX(-50%);
 }
 
 .refresh-button,
@@ -257,12 +270,17 @@ button {
     display: block;
     height: 2px;
     background: var(--gold-light);
-    transition: width var(--transition), transform var(--transition);
+    transition: width var(--transition), transform var(--transition), opacity var(--transition);
 }
 
-.menu-button span:nth-child(1) { width: 44px; }
-.menu-button span:nth-child(2) { width: 34px; }
-.menu-button span:nth-child(3) { width: 44px; }
+.menu-button span:nth-child(1),
+.menu-button span:nth-child(3) {
+    width: 44px;
+}
+
+.menu-button span:nth-child(2) {
+    width: 34px;
+}
 
 .menu-button:hover span:nth-child(2) {
     width: 44px;
@@ -275,6 +293,10 @@ button {
     padding-bottom: 90px;
     text-align: left;
 }
+
+/* =========================================================
+   TAYANA BRAND
+========================================================= */
 
 .brand {
     width: max-content;
@@ -357,52 +379,6 @@ button {
     background: var(--gold);
 }
 
-.btn {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 300px;
-    min-height: 62px;
-    margin-top: 42px;
-    padding: 16px 34px;
-    border: 1px solid transparent;
-    border-radius: 2px;
-    font-size: .88rem;
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    overflow: hidden;
-    transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
-}
-
-.btn::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    transform: translateX(-120%);
-    background: linear-gradient(100deg, transparent, rgba(255,255,255,.4), transparent);
-    transition: transform .8s ease;
-}
-
-.btn:hover::after {
-    transform: translateX(120%);
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-}
-
-.btn-gold {
-    color: #17110a;
-    background: linear-gradient(135deg, #f0cc86, #c4944b);
-    box-shadow: 0 16px 45px rgba(0,0,0,.35);
-}
-
-.btn-gold:hover {
-    box-shadow: 0 22px 55px rgba(0,0,0,.5);
-}
-
 .hero-scroll {
     position: absolute;
     z-index: 4;
@@ -425,7 +401,69 @@ button {
 }
 
 /* =========================================================
-   MENU
+   BUTTONS
+========================================================= */
+
+.btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+    min-height: 62px;
+    margin-top: 42px;
+    padding: 16px 34px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-size: .88rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-120%);
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,.4), transparent);
+    transition: transform .8s ease;
+    pointer-events: none;
+}
+
+.btn:hover::after {
+    transform: translateX(120%);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-gold {
+    color: #17110a;
+    background: linear-gradient(135deg, #f0cc86, #c4944b);
+    box-shadow: 0 16px 45px rgba(0,0,0,.35);
+}
+
+.btn-gold:hover {
+    box-shadow: 0 22px 55px rgba(0,0,0,.5);
+}
+
+.btn-outline {
+    color: var(--gold-light);
+    border-color: var(--gold-dark);
+    background: transparent;
+}
+
+.btn-outline:hover {
+    color: #15100b;
+    background: var(--gold-light);
+}
+
+/* =========================================================
+   FULLSCREEN MENU
 ========================================================= */
 
 .site-menu {
@@ -504,7 +542,7 @@ button {
 }
 
 /* =========================================================
-   SERVICES
+   BENEFITS
 ========================================================= */
 
 .services-luxury {
@@ -655,9 +693,8 @@ button {
 
 .portfolio-info {
     position: relative;
-    padding: 22px 3px 0;
+    padding: 22px 3px 21px;
     border-bottom: 1px solid var(--line);
-    padding-bottom: 21px;
 }
 
 .portfolio-info > span {
@@ -728,9 +765,22 @@ button {
     bottom: -90px;
 }
 
-.consultation h2 {
+.consultation-glow {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: rgba(216,179,106,.08);
+    filter: blur(55px);
+    animation: consultationGlow 10s ease-in-out infinite alternate;
+}
+
+.consultation > * {
     position: relative;
     z-index: 2;
+}
+
+.consultation h2 {
     margin-top: 17px;
     color: var(--cream);
     font-family: "Cormorant Garamond", Georgia, serif;
@@ -745,27 +795,9 @@ button {
 }
 
 .consultation p {
-    position: relative;
-    z-index: 2;
     max-width: 600px;
     margin-top: 18px;
     color: var(--muted);
-}
-
-.consultation .btn {
-    position: relative;
-    z-index: 2;
-}
-
-.btn-outline {
-    color: var(--gold-light);
-    border-color: var(--gold-dark);
-    background: transparent;
-}
-
-.btn-outline:hover {
-    color: #15100b;
-    background: var(--gold-light);
 }
 
 /* =========================================================
@@ -892,7 +924,7 @@ a.contact-row:hover > b {
 }
 
 /* =========================================================
-   FLOATING BUTTON
+   FLOATING CHAT
 ========================================================= */
 
 .chat-button {
@@ -951,6 +983,8 @@ a.contact-row:hover > b {
     object-fit: contain;
     border: 1px solid rgba(216,179,106,.25);
     box-shadow: 0 30px 100px rgba(0,0,0,.7);
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .lightbox-close,
@@ -986,6 +1020,14 @@ a.contact-row:hover > b {
     transform: translateY(-50%);
 }
 
+.lightbox .prev {
+    left: 28px;
+}
+
+.lightbox .next {
+    right: 28px;
+}
+
 .lightbox-nav:hover,
 .lightbox-close:hover {
     background: rgba(216,179,106,.14);
@@ -999,9 +1041,6 @@ a.contact-row:hover > b {
     transform: translateY(-50%) scale(1.08);
 }
 
-.lightbox .prev { left: 28px; }
-.lightbox .next { right: 28px; }
-
 #lightbox-counter {
     position: absolute;
     left: 50%;
@@ -1010,21 +1049,6 @@ a.contact-row:hover > b {
     color: var(--muted);
     font-size: .72rem;
     letter-spacing: .18em;
-}
-
-/* =========================================================
-   REVEAL
-========================================================= */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(35px);
-    transition: opacity .9s ease, transform .9s ease;
-}
-
-.reveal.show {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* =========================================================
@@ -1044,6 +1068,17 @@ a.contact-row:hover > b {
 @keyframes glowMoveReverse {
     from { transform: translate(0, 0) scale(1); }
     to { transform: translate(-80px, -40px) scale(1.15); }
+}
+
+@keyframes consultationGlow {
+    from {
+        transform: translate(-80px, 20px) scale(.9);
+        opacity: .55;
+    }
+    to {
+        transform: translate(80px, -20px) scale(1.12);
+        opacity: 1;
+    }
 }
 
 @keyframes brandReveal {
@@ -1081,7 +1116,7 @@ a.contact-row:hover > b {
         border-right: 0;
     }
 
-    .luxury-card:nth-child(-n+2) {
+    .luxury-card:nth-child(-n + 2) {
         border-bottom: 1px solid var(--line);
     }
 
@@ -1123,8 +1158,8 @@ a.contact-row:hover > b {
 
     .hero-overlay {
         background:
-            linear-gradient(90deg, rgba(5,4,3,.9), rgba(7,5,4,.62)),
-            linear-gradient(0deg, rgba(5,4,3,.9), transparent 55%);
+            linear-gradient(90deg, rgba(5,4,3,.92), rgba(7,5,4,.64)),
+            linear-gradient(0deg, rgba(5,4,3,.92), transparent 55%);
     }
 
     .hero-content {
@@ -1269,8 +1304,13 @@ a.contact-row:hover > b {
         font-size: 35px;
     }
 
-    .lightbox .prev { left: 8px; }
-    .lightbox .next { right: 8px; }
+    .lightbox .prev {
+        left: 8px;
+    }
+
+    .lightbox .next {
+        right: 8px;
+    }
 
     .lightbox-close {
         top: 15px;
@@ -1371,8 +1411,13 @@ a.contact-row:hover > b {
 }
 
 /* =========================================================
-   REDUCED MOTION
+   ACCESSIBILITY
 ========================================================= */
+
+:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 4px;
+}
 
 @media (prefers-reduced-motion: reduce) {
     *,
@@ -1409,4 +1454,8 @@ a.contact-row:hover > b {
 ::-webkit-scrollbar-thumb {
     border-radius: 20px;
     background: linear-gradient(var(--gold), var(--gold-dark));
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-light);
 }
