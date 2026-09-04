@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+
 :root {
   --bg: #0b0a09;
   --bg-elev: #12110f;
@@ -135,10 +137,31 @@ h3 {
   margin-inline: auto;
 }
 
+/* Верхній логотип — favicon */
+
 .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
   color: var(--gold);
   font-size: 1.55rem;
   letter-spacing: 0.16em;
+}
+
+.logo img {
+  display: block;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.logo:hover img {
+  transform: rotate(-8deg) scale(1.06);
+  filter: brightness(1.08);
 }
 
 .site-nav {
@@ -253,9 +276,13 @@ h3 {
 .hero-brand {
   margin-bottom: 10px;
   color: var(--gold);
-  font-size: clamp(3.2rem, 7vw, 5.4rem);
-  letter-spacing: 0.12em;
-  line-height: 1;
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-size: clamp(5.2rem, 10vw, 8.4rem);
+  letter-spacing: 0.01em;
+  line-height: 0.9;
+  transform: scaleX(1.02);
+  transform-origin: left center;
 }
 
 .hero h1 {
@@ -706,10 +733,32 @@ h3 {
   .work-card {
     min-height: 210px;
   }
+
+  .hero-brand {
+    font-size: clamp(4.6rem, 19vw, 6.8rem);
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: min(100% - 28px, var(--container));
+  }
+
+  .hero {
+    padding-top: calc(var(--header-h) + 24px);
+    padding-bottom: 56px;
+  }
+
+  .hero-brand {
+    margin-bottom: 12px;
+    font-size: clamp(4.2rem, 20vw, 5.6rem);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+
   * {
     animation: none !important;
     transition: none !important;
