@@ -282,9 +282,11 @@ h3 {
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(4rem, 6.4vw, 5.5rem);
   font-style: italic;
-  font-weight: 700;
-  letter-spacing: 0.025em;
+  font-weight: 600;
+  letter-spacing: 0.055em;
   line-height: 0.95;
+  transform: skewX(-4deg);
+  transform-origin: left center;
 }
 
 .hero h1 {
