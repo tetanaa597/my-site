@@ -279,11 +279,11 @@ h3 {
 .hero-brand {
   margin-bottom: 10px;
   color: var(--gold-soft);
-  font-family: "Italianno", cursive;
-  font-size: clamp(5rem, 8vw, 7rem);
+  font-family: "Allura", cursive;
+  font-size: clamp(4.8rem, 7.5vw, 6.5rem);
   font-weight: 400;
-  letter-spacing: 0.025em;
-  line-height: 0.85;
+  letter-spacing: 0.015em;
+  line-height: 0.9;
   white-space: nowrap;
 }
 
