@@ -1100,3 +1100,28 @@ h3 {
   text-align: center;
   align-items: center;
 }
+
+
+
+/* Центрування існуючої секції Контакти */
+
+.contact-section {
+  text-align: center;
+}
+
+.contact-section .container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-section h2,
+.contact-section h3,
+.contact-section p {
+  text-align: center;
+}
+
+.contact-section .contact-grid {
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
