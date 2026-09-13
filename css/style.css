@@ -1070,3 +1070,33 @@ h3 {
     gap: 10px 16px;
   }
 }
+
+
+
+/* Центрування секції контактів без зміни її дизайну */
+
+.contact-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-section .section-heading,
+.contact-section .section-title,
+.contact-section .section-subtitle {
+  text-align: center;
+}
+
+.contact-section .contact-grid,
+.contact-section .contact-cards,
+.contact-section .contacts-grid {
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-section .contact-card {
+  text-align: center;
+  align-items: center;
+}
