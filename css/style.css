@@ -414,9 +414,6 @@ h3 {
     var(--photo) center/cover no-repeat;
 }
 
-.work-card--wide {
-  grid-column: span 2;
-}
 
 .work-copy {
   position: absolute;
@@ -661,9 +658,6 @@ h3 {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .work-card--wide {
-    grid-column: span 2;
-  }
 
   .about-grid,
   .cta-inner,
@@ -735,9 +729,6 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .work-card--wide {
-    grid-column: span 1;
-  }
 
   .work-card {
     min-height: 210px;
