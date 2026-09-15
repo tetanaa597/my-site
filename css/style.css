@@ -1144,3 +1144,15 @@ h3 {
     letter-spacing: -0.035em;
   }
 }
+
+
+/* ТЕСТ ЛОГОТИПУ TAYANA — ВАРІАНТ 1 */
+.hero .hero-content .hero-brand {
+  font-family: "Bodoni Moda", serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.015em !important;
+  line-height: 0.95 !important;
+  transform: none !important;
+  text-transform: uppercase !important;
+}
