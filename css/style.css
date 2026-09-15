@@ -277,21 +277,13 @@ h3 {
 }
 
 .hero-brand {
-  display: block;
-  margin: 0 0 38px;
-
-  color: var(--gold);
-  font-family: "Italianno", cursive;
-  font-style: normal;
-  font-weight: 400;
-
-  font-size: clamp(8rem, 13vw, 13rem);
-  line-height: 0.65;
-  letter-spacing: 0.015em;
-
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(4.8rem, 9vw, 8.5rem);
+  line-height: 1;
+  letter-spacing: .025em;
   white-space: nowrap;
-  transform: none;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.22);
 }
 
 .hero h1 {
