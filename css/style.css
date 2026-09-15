@@ -1294,3 +1294,13 @@ h3 {
     font-size: clamp(5rem, 22vw, 8rem) !important;
   }
 }
+
+.hero-brand {
+  font-family: "Courier New", monospace !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 13rem !important;
+  line-height: 0.65 !important;
+  letter-spacing: 0 !important;
+  transform: none !important;
+}
