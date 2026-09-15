@@ -277,17 +277,19 @@ h3 {
 }
 
 .hero-brand {
-  margin-bottom: 18px;
+  display: block;
+  margin: 0 0 24px;
   color: var(--gold);
-  font-family: "Bodoni Moda", "Didot", "Bodoni 72", serif;
+  font-family: "Bodoni Moda", "Times New Roman", serif;
   font-style: normal;
   font-weight: 400;
-  font-size: clamp(4rem, 6.6vw, 5.6rem);
-  letter-spacing: 0.015em;
+  font-size: clamp(3.8rem, 6vw, 5.4rem);
   line-height: 0.95;
+  letter-spacing: 0.035em;
   white-space: nowrap;
   transform: none;
   text-rendering: geometricPrecision;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.2);
 }
 
 .hero h1 {
@@ -1155,4 +1157,31 @@ h3 {
   line-height: 0.95 !important;
   transform: none !important;
   text-transform: uppercase !important;
+}
+
+/* Точне позиціонування логотипа TAYANA у першому екрані */
+.hero-brand {
+  position: relative;
+  z-index: 2;
+  margin-top: 8px;
+  margin-bottom: 26px;
+}
+
+/* Адаптація для планшетів */
+@media (max-width: 860px) {
+  .hero-brand {
+    margin-top: 0;
+    margin-bottom: 22px;
+    font-size: clamp(3.2rem, 9vw, 4.8rem);
+    letter-spacing: 0.025em;
+  }
+}
+
+/* Адаптація для телефонів */
+@media (max-width: 480px) {
+  .hero-brand {
+    margin-bottom: 20px;
+    font-size: clamp(2.8rem, 13vw, 4rem);
+    letter-spacing: 0.015em;
+  }
 }
