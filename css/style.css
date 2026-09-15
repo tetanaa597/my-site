@@ -278,15 +278,15 @@ h3 {
 
 .hero-brand {
   display: block;
-  margin: 0 0 34px;
+  margin: 0 0 38px;
 
   color: var(--gold);
-  font-family: "Allura", cursive;
+  font-family: "Italianno", cursive;
   font-style: normal;
   font-weight: 400;
 
-  font-size: clamp(6rem, 10vw, 10rem);
-  line-height: 0.8;
+  font-size: clamp(8rem, 13vw, 13rem);
+  line-height: 0.65;
   letter-spacing: 0.015em;
 
   white-space: nowrap;
@@ -1251,5 +1251,19 @@ h3 {
   .hero-brand {
     font-size: clamp(4rem, 18vw, 6rem);
     margin-bottom: 26px;
+  }
+}
+
+@media (max-width: 860px) {
+  .hero-brand {
+    font-size: clamp(6rem, 18vw, 10rem);
+    margin-bottom: 34px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-brand {
+    font-size: clamp(5rem, 22vw, 8rem);
+    margin-bottom: 30px;
   }
 }
