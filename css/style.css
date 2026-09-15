@@ -97,6 +97,10 @@ h2 {
   margin-bottom: 36px;
   font-size: clamp(2rem, 4vw, 3.1rem);
   line-height: 1.15;
+}
+
+h3 {
+  font-size: 1.05rem;
   font-weight: 600;
 }
 
@@ -282,6 +286,23 @@ h2 {
   font-weight: 400;
 
   font-size: clamp(8rem, 13vw, 13rem);
+  line-height: 0.65;
+  letter-spacing: 0.015em;
+
+  white-space: nowrap;
+  transform: none;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.22);
+}
+
+.hero h1 {
+  max-width: 14ch;
+  font-size: clamp(2rem, 4.4vw, 3.35rem);
+  line-height: 1.15;
+}
+
+.diamond-line {
+  position: relative;
+  width: min(280px, 70%);
   height: 1px;
   margin: 22px 0;
   background: var(--gold);
@@ -732,6 +753,9 @@ h2 {
     width: min(100% - 28px, var(--container));
   }
 
+  .hero {
+    padding-top: calc(var(--header-h) + 24px);
+    padding-bottom: 56px;
   }
 
   .hero-brand {
@@ -744,6 +768,10 @@ h2 {
   html { scroll-behavior: auto; }
 
   * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
 
 .footer-social {
   display: flex;
@@ -1114,41 +1142,165 @@ h2 {
 }
 
 @media (max-width: 480px) {
-  line-height: 0.95 !important;
-  transform: none !important;
-  transform: none !important;
+  .hero-brand {
+    margin-bottom: 12px;
+    font-size: clamp(3.35rem, 17vw, 4.75rem);
+    letter-spacing: -0.035em;
+  }
 }
 
-/* =========================================
-   TAYANA HERO WORDMARK — FINAL STYLE
-   ========================================= */
+
+/* ТЕСТ ЛОГОТИПУ TAYANA — ВАРІАНТ 1 */
 .hero .hero-content .hero-brand {
-  display: block;
-  position: relative;
-  z-index: 2;
-  margin: 0 0 38px;
-  color: var(--gold);
-  font-family: "Ballet", "Italianno", "Brush Script MT", cursive !important;
+  font-family: "Bodoni Moda", serif !important;
   font-style: normal !important;
   font-weight: 400 !important;
-  font-size: clamp(8rem, 13vw, 13rem) !important;
-  line-height: 0.65 !important;
-  letter-spacing: 0.01em !important;
-  white-space: nowrap !important;
+  letter-spacing: 0.015em !important;
+  line-height: 0.95 !important;
   transform: none !important;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.22);
+  text-transform: uppercase !important;
+}
+
+/* Точне позиціонування логотипа TAYANA у першому екрані */
+.hero-brand {
+  position: relative;
+  z-index: 2;
+  margin-top: 8px;
+  margin-bottom: 26px;
+}
+
+/* Адаптація для планшетів */
+@media (max-width: 860px) {
+  .hero-brand {
+    margin-top: 0;
+    margin-bottom: 22px;
+    font-size: clamp(3.2rem, 9vw, 4.8rem);
+    letter-spacing: 0.025em;
+  }
+}
+
+/* Адаптація для телефонів */
+@media (max-width: 480px) {
+  .hero-brand {
+    margin-bottom: 20px;
+    font-size: clamp(2.8rem, 13vw, 4rem);
+    letter-spacing: 0.015em;
+  }
+}
+
+/* Корекція композиції першого екрана */
+.hero-content {
+  padding-top: 110px;
+}
+
+/* Якщо hero-content є flex-контейнером */
+.hero-content .hero-brand {
+  align-self: flex-start;
+}
+
+/* Планшети */
+@media (max-width: 860px) {
+  .hero-content {
+    padding-top: 90px;
+  }
+
+  .hero-brand {
+    margin-bottom: 28px;
+    font-size: clamp(3rem, 8vw, 4.6rem);
+    letter-spacing: 0.04em;
+  }
+}
+
+/* Телефони */
+@media (max-width: 480px) {
+  .hero-content {
+    padding-top: 70px;
+  }
+
+  .hero-brand {
+    margin-bottom: 24px;
+    font-size: clamp(2.7rem, 13vw, 4rem);
+    letter-spacing: 0.025em;
+  }
 }
 
 @media (max-width: 860px) {
-  .hero .hero-content .hero-brand {
-    font-size: clamp(6rem, 18vw, 10rem) !important;
+  .hero-brand {
+    font-size: clamp(4rem, 12vw, 6rem);
+    letter-spacing: 0.015em;
+    margin-bottom: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-brand {
+    font-size: clamp(3.4rem, 16vw, 5rem);
+    letter-spacing: 0;
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 860px) {
+  .hero-brand {
+    font-size: clamp(5rem, 14vw, 8rem);
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-brand {
+    font-size: clamp(4rem, 18vw, 6rem);
+    margin-bottom: 26px;
+  }
+}
+
+@media (max-width: 860px) {
+  .hero-brand {
+    font-size: clamp(6rem, 18vw, 10rem);
     margin-bottom: 34px;
   }
 }
 
 @media (max-width: 480px) {
-  .hero .hero-content .hero-brand {
-    font-size: clamp(5rem, 22vw, 8rem) !important;
+  .hero-brand {
+    font-size: clamp(5rem, 22vw, 8rem);
     margin-bottom: 30px;
   }
+}
+
+
+/* Фінальний стиль логотипа TAYANA */
+.hero-brand {
+  font-family: "Ballet", cursive !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+
+  font-size: clamp(8rem, 13vw, 13rem) !important;
+  line-height: 0.65 !important;
+  letter-spacing: 0.01em !important;
+
+  transform: none !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 860px) {
+  .hero-brand {
+    font-size: clamp(6rem, 18vw, 10rem) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-brand {
+    font-size: clamp(5rem, 22vw, 8rem) !important;
+  }
+}
+
+.hero-brand {
+  font-family: "Courier New", monospace !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 13rem !important;
+  line-height: 0.65 !important;
+  letter-spacing: 0 !important;
+  transform: none !important;
 }
