@@ -1337,7 +1337,7 @@ h3 {
 .hero .hero-content .hero-brand {
   font-family: "Cormorant Garamond", Georgia, serif !important;
   font-style: italic !important;
-  font-weight: 500 !important;
+  font-weight: 700 !important;
   font-size: clamp(5.8rem, 10.5vw, 10.5rem) !important;
   line-height: 0.9 !important;
   letter-spacing: 0.015em !important;
