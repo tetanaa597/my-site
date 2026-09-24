@@ -1417,3 +1417,47 @@ h3 {
     font-size: 0.92rem;
   }
 }
+
+/* =========================================================
+   TAYANA WORDMARK — вигляд за наданим референсом
+   Елегантний великий курсивний антиквений напис золотого кольору.
+   Решта стилів сайту не змінюється.
+   ========================================================= */
+.hero .hero-content .hero-brand,
+.hero-content .hero-brand,
+.hero-brand {
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif !important;
+  font-style: italic !important;
+  font-weight: 500 !important;
+  font-size: clamp(8.5rem, 25vw, 17rem) !important;
+  line-height: 0.82 !important;
+  letter-spacing: 0.015em !important;
+  color: var(--gold) !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  transform: none !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.24) !important;
+  margin: 0 0 30px !important;
+}
+
+/* Планшети */
+@media (max-width: 860px) {
+  .hero .hero-content .hero-brand,
+  .hero-content .hero-brand,
+  .hero-brand {
+    font-size: clamp(5.2rem, 19vw, 10rem) !important;
+    letter-spacing: 0.005em !important;
+    margin-bottom: 24px !important;
+  }
+}
+
+/* Телефони */
+@media (max-width: 480px) {
+  .hero .hero-content .hero-brand,
+  .hero-content .hero-brand,
+  .hero-brand {
+    font-size: clamp(3.8rem, 18vw, 5.8rem) !important;
+    letter-spacing: 0 !important;
+    margin-bottom: 18px !important;
+  }
+}
