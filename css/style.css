@@ -414,6 +414,9 @@ h3 {
     var(--photo) center/cover no-repeat;
 }
 
+.work-card--wide {
+  grid-column: span 2;
+}
 
 .work-copy {
   position: absolute;
@@ -658,6 +661,9 @@ h3 {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .work-card--wide {
+    grid-column: span 2;
+  }
 
   .about-grid,
   .cta-inner,
@@ -729,6 +735,9 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .work-card--wide {
+    grid-column: span 1;
+  }
 
   .work-card {
     min-height: 210px;
@@ -1148,7 +1157,7 @@ h3 {
   font-weight: 400 !important;
   letter-spacing: 0.015em !important;
   line-height: 0.95 !important;
-  transform: skewX(-10deg) !important;
+  transform: none !important;
   text-transform: uppercase !important;
 }
 
@@ -1296,71 +1305,115 @@ h3 {
   transform: none !important;
 }
 
-/* FINAL TAYANA LOGO OVERRIDE — only the brand text is changed */
-.hero .hero-content .hero-brand,
-.hero-content .hero-brand,
-.hero-brand {
-  font-family: "Ballet", "Italianno", cursive !important;
-  font-style: normal;
-  font-weight: 400;
+
+/* ==========================================================
+   TAYANA — узгоджене збільшення типографіки
+   Додає виразності текстам, не змінюючи сітки/позицій блоків.
+   ========================================================== */
+
+/* Навігація хедера */
+.site-header .site-nav a {
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  color: rgba(255, 255, 255, 0.94);
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+.site-header .site-nav a:hover,
+.site-header .site-nav a:focus-visible {
   color: var(--gold);
-  letter-spacing: .015em;
-  line-height: .72;
-  text-shadow:
-    0 2px 18px rgba(0, 0, 0, .28),
-    0 0 24px rgba(197, 160, 89, .14);
+  text-shadow: 0 0 12px rgba(197, 160, 89, 0.22);
 }
 
+/* Підзаголовки/eyebrow секцій: «Про нас», «Наші роботи»,
+   «Тканини», «Контакти» та інші відповідні мітки */
+.eyebrow {
+  font-size: 0.95rem;
+  letter-spacing: 0.22em;
+}
+
+/* Текст у першому екрані */
+.hero-accent {
+  font-size: clamp(1.25rem, 2.25vw, 1.65rem);
+  line-height: 1.45;
+}
+.hero-features {
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  line-height: 1.6;
+}
+
+/* Основний текст секції «Про нас» */
+.about-grid > div > p:not(.eyebrow) {
+  font-size: clamp(1.05rem, 1.35vw, 1.18rem);
+  line-height: 1.85;
+}
+
+/* Назви карток і підпис-посилання в галереї */
+.work-copy strong {
+  font-size: clamp(1.35rem, 1.8vw, 1.65rem);
+  line-height: 1.25;
+}
+.work-copy span {
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+/* Нижній блок сайту */
+.site-footer .footer-copy,
+.site-footer .footer-contact-label,
+.site-footer .footer-messengers-label,
+.site-footer .footer-legal a,
+.site-footer .footer-tagline {
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+.site-footer .footer-phone {
+  font-size: clamp(1.3rem, 1.8vw, 1.6rem);
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+/* Адаптивність типографіки без зміни структури */
 @media (max-width: 860px) {
-  .hero .hero-content .hero-brand,
-  .hero-content .hero-brand,
-  .hero-brand {
-    font-size: clamp(3.8rem, 13vw, 5.4rem) !important;
+  .site-header .site-nav a {
+    font-size: 1.08rem;
+  }
+  .about-grid > div > p:not(.eyebrow) {
+    font-size: 1.08rem;
+  }
+  .work-copy strong {
+    font-size: 1.35rem;
+  }
+  .work-copy span {
+    font-size: 0.95rem;
   }
 }
-
 @media (max-width: 480px) {
-  .hero .hero-content .hero-brand,
-  .hero-content .hero-brand,
-  .hero-brand {
-    font-size: clamp(3.45rem, 18vw, 4.8rem) !important;
+  .eyebrow {
+    font-size: 0.88rem;
+    letter-spacing: 0.18em;
   }
-}
-
-
-/* =========================================================
-   ФІНАЛЬНИЙ СТИЛЬ ЛОГОТИПА TAYANA
-   Змінюється тільки напис TAYANA.
-   Інші блоки та верстка не змінюються.
-   ========================================================= */
-
-.hero .hero-content .hero-brand {
-  font-family: "Cormorant Garamond", Georgia, serif !important;
-  font-style: italic !important;
-  font-weight: 500 !important;
-  font-size: clamp(8.7rem, 15.75vw, 15.75rem) !important;
-  line-height: 0.9 !important;
-  letter-spacing: 0.015em !important;
-  color: var(--gold) !important;
-  white-space: nowrap !important;
-  transform: none !important;
-  text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.24),
-    0 0 16px rgba(197, 160, 89, 0.12) !important;
-}
-
-/* Планшети */
-@media (max-width: 860px) {
-  .hero .hero-content .hero-brand {
-    font-size: clamp(6.6rem, 21vw, 10.5rem) !important;
-    letter-spacing: 0.01em !important;
+  .hero-accent {
+    font-size: 1.18rem;
   }
-}
-
-/* Телефони */
-@media (max-width: 480px) {
-  .hero .hero-content .hero-brand {
-    font-size: clamp(5.4rem, 25.5vw, 8.1rem) !important;
-    letter-spacing: 0 !important;
+  .hero-features {
+    font-size: 1rem;
+  }
+  .about-grid > div > p:not(.eyebrow) {
+    font-size: 1.02rem;
+    line-height: 1.75;
+  }
+  .work-copy strong {
+    font-size: 1.25rem;
+  }
+  .work-copy span {
+    font-size: 0.9rem;
+  }
+  .site-footer .footer-copy,
+  .site-footer .footer-contact-label,
+  .site-footer .footer-messengers-label,
+  .site-footer .footer-legal a,
+  .site-footer .footer-tagline {
+    font-size: 0.92rem;
   }
 }
