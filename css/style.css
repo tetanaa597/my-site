@@ -406,6 +406,7 @@ h3 {
 .work-card {
   position: relative;
   min-height: 230px;
+  height: 230px;
   overflow: hidden;
   border-radius: 8px;
   text-align: left;
@@ -415,7 +416,7 @@ h3 {
 }
 
 .work-card--wide {
-  grid-column: span 2;
+  grid-column: span 1;
 }
 
 .work-copy {
