@@ -489,25 +489,88 @@ function updateCounter() {
   }
 }
 
-function showMedia(src) {
-  const img = document.getElementById("lightbox-img");
+let activeVideoObjectUrl = null;
+let mediaLoadToken = 0;
+
+function releaseVideoObjectUrl() {
   const video = document.getElementById("lightbox-video");
-
-  const isVideo = /\.mp4(?:[?#].*)?$/i.test(src);
-
-  if (isVideo) {
-    img.style.display = "none";
-    img.removeAttribute("src");
-    video.style.display = "block";
-    video.src = src;
-    video.load();
-  } else {
+  if (video) {
     video.pause();
     video.removeAttribute("src");
     video.load();
+  }
+  if (activeVideoObjectUrl) {
+    URL.revokeObjectURL(activeVideoObjectUrl);
+    activeVideoObjectUrl = null;
+  }
+}
+
+async function showMedia(src) {
+  const img = document.getElementById("lightbox-img");
+  const video = document.getElementById("lightbox-video");
+  const token = ++mediaLoadToken;
+
+  const isVideo = /\.mp4(?:[?#].*)?$/i.test(src);
+
+  if (!isVideo) {
+    releaseVideoObjectUrl();
     video.style.display = "none";
     img.style.display = "block";
     img.src = src;
+    return;
+  }
+
+  img.style.display = "none";
+  img.removeAttribute("src");
+
+  releaseVideoObjectUrl();
+  video.style.display = "block";
+  video.controls = true;
+  video.playsInline = true;
+  video.preload = "auto";
+  video.setAttribute("controls", "");
+  video.setAttribute("playsinline", "");
+
+  /*
+    Для відео завантажуємо файл як Blob.
+    Це обходить проблеми CDN/Range-запитів для окремих MP4:
+    браузер отримує один повний файл, після чого <video> відтворює
+    його локально через blob: URL.
+  */
+  try {
+    const response = await fetch(src, {
+      method: "GET",
+      cache: "no-store",
+      credentials: "same-origin"
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    const blob = await response.blob();
+
+    if (token !== mediaLoadToken) return;
+
+    if (!blob.type || !blob.type.toLowerCase().includes("video")) {
+      throw new Error("Файл не визначився як відео");
+    }
+
+    activeVideoObjectUrl = URL.createObjectURL(blob);
+    video.src = activeVideoObjectUrl;
+    video.load();
+
+  } catch (error) {
+    if (token !== mediaLoadToken) return;
+
+    /*
+      Резервний варіант: якщо fetch/Blob не спрацював,
+      повертаємо пряме завантаження MP4.
+    */
+    video.src = src;
+    video.load();
+
+    console.warn("Не вдалося завантажити MP4 через Blob:", error);
   }
 }
 
@@ -527,12 +590,8 @@ function openPortfolio(type) {
 function closeLightbox(e) {
   if (e) e.stopPropagation();
 
-  const video = document.getElementById("lightbox-video");
-  if (video) {
-    video.pause();
-    video.removeAttribute("src");
-    video.load();
-  }
+  mediaLoadToken++;
+  releaseVideoObjectUrl();
 
   currentPortfolio = [];
   currentIndex = 0;
