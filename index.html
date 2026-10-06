@@ -393,12 +393,38 @@
   </a>
 </div>
 
+<style>
+#lightbox-video{
+  display:none;
+  width:min(92%,1200px);
+  max-height:84vh;
+  border-radius:8px;
+  background:#000;
+  object-fit:contain;
+}
+#lightbox-video::-webkit-media-controls-panel{background-color:rgba(0,0,0,.72);}
+@media (max-width:700px){
+  #lightbox-video{width:94%;max-height:78vh;}
+}
+</style>
+
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <span class="close" onclick="closeLightbox(event)">✕</span>
-  <span class="nav prev" onclick="prevImage(event)">❮</span>
+  <span class="close" onclick="closeLightbox(event)" aria-label="Закрити">✕</span>
+  <span class="nav prev" onclick="prevImage(event)" aria-label="Попереднє">❮</span>
+
   <img id="lightbox-img" src="" alt="Фото роботи" onclick="event.stopPropagation()">
+
+  <video
+    id="lightbox-video"
+    controls
+    playsinline
+    preload="metadata"
+    onclick="event.stopPropagation()"
+    aria-label="Відео роботи">
+  </video>
+
   <div id="lightbox-counter">1 / 1</div>
-  <span class="nav next" onclick="nextImage(event)">❯</span>
+  <span class="nav next" onclick="nextImage(event)" aria-label="Наступне">❯</span>
 </div>
 
 <script>
@@ -439,7 +465,19 @@ const portfolios = {
   kitchen: ["images/shtory3.jpg", "images/shtory1.jpg", "images/shtory2.jpg", "images/shtory5.jpg", "images/shtory4.jpg"],
   kids: ["images/shtory4.jpg", "images/shtory2.jpg", "images/shtory1.jpg", "images/shtory5.jpg", "images/shtory3.jpg"],
   office: ["images/shtory5.jpg", "images/shtory1.jpg", "images/shtory2.jpg", "images/shtory3.jpg", "images/shtory4.jpg"],
-  blinds: ["images/shtory5.jpg", "images/shtory3.jpg", "images/shtory1.jpg", "images/shtory4.jpg", "images/shtory2.jpg"],
+  blinds: [
+    "images/portfolio/blinds/blinds-01.mp4",
+    "images/portfolio/blinds/blinds-02.jpg",
+    "images/portfolio/blinds/blinds-03.mp4",
+    "images/portfolio/blinds/blinds-04.jpg",
+    "images/portfolio/blinds/blinds-05.jpg",
+    "images/portfolio/blinds/blinds-06.jpg",
+    "images/portfolio/blinds/blinds-07.jpg",
+    "images/portfolio/blinds/blinds-08.jpg",
+    "images/portfolio/blinds/blinds-09.jpg",
+    "images/portfolio/blinds/blinds-10.jpg",
+    "images/portfolio/blinds/blinds-11.jpg"
+  ],
   custom: ["images/shtory1.jpg", "images/shtory5.jpg", "images/shtory2.jpg", "images/shtory3.jpg", "images/shtory4.jpg"],
   roman: ["images/shtory3.jpg", "images/shtory4.jpg", "images/shtory1.jpg", "images/shtory2.jpg", "images/shtory5.jpg"]
 };
@@ -451,11 +489,36 @@ function updateCounter() {
   }
 }
 
+function showMedia(src) {
+  const img = document.getElementById("lightbox-img");
+  const video = document.getElementById("lightbox-video");
+
+  const isVideo = /\.mp4(?:[?#].*)?$/i.test(src);
+
+  if (isVideo) {
+    img.style.display = "none";
+    img.removeAttribute("src");
+    video.style.display = "block";
+    video.src = src;
+    video.load();
+  } else {
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
+    video.style.display = "none";
+    img.style.display = "block";
+    img.src = src;
+  }
+}
+
 function openPortfolio(type) {
   currentPortfolio = portfolios[type] || [];
   currentIndex = 0;
+
+  if (!currentPortfolio.length) return;
+
   const lightbox = document.getElementById("lightbox");
-  document.getElementById("lightbox-img").src = currentPortfolio[currentIndex];
+  showMedia(currentPortfolio[currentIndex]);
   updateCounter();
   lightbox.style.display = "flex";
   document.body.style.overflow = "hidden";
@@ -463,7 +526,16 @@ function openPortfolio(type) {
 
 function closeLightbox(e) {
   if (e) e.stopPropagation();
+
+  const video = document.getElementById("lightbox-video");
+  if (video) {
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
+  }
+
   currentPortfolio = [];
+  currentIndex = 0;
   document.getElementById("lightbox").style.display = "none";
   document.body.style.overflow = "";
 }
@@ -472,7 +544,7 @@ function prevImage(e) {
   e.stopPropagation();
   if (!currentPortfolio.length) return;
   currentIndex = (currentIndex - 1 + currentPortfolio.length) % currentPortfolio.length;
-  document.getElementById("lightbox-img").src = currentPortfolio[currentIndex];
+  showMedia(currentPortfolio[currentIndex]);
   updateCounter();
 }
 
@@ -480,7 +552,7 @@ function nextImage(e) {
   e.stopPropagation();
   if (!currentPortfolio.length) return;
   currentIndex = (currentIndex + 1) % currentPortfolio.length;
-  document.getElementById("lightbox-img").src = currentPortfolio[currentIndex];
+  showMedia(currentPortfolio[currentIndex]);
   updateCounter();
 }
 
