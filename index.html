@@ -170,7 +170,7 @@
           <span>Переглянути роботи →</span>
         </span>
       </button>
-      <button class="work-card work-card--wide" type="button" onclick="openPortfolio('custom')" style="--photo:url('images/shtory1.jpg')">
+      <button class="work-card work-card--wide" type="button" onclick="openPortfolio('custom')" style="--photo:url('images/portfolio/custom/custom-01.jpg')">
         <span class="work-copy">
           <strong>Нестандартні вікна</strong>
           <span>Переглянути роботи →</span>
@@ -478,7 +478,15 @@ const portfolios = {
     "images/portfolio/blinds/blinds-10.jpg",
     "images/portfolio/blinds/blinds-11.jpg"
   ],
-  custom: ["images/shtory1.jpg", "images/shtory5.jpg", "images/shtory2.jpg", "images/shtory3.jpg", "images/shtory4.jpg"],
+  custom: [
+    "images/portfolio/custom/custom-01.jpg",
+    "images/portfolio/custom/custom-02.jpg",
+    "images/portfolio/custom/custom-03.jpg",
+    "images/portfolio/custom/custom-04.jpg",
+    "images/portfolio/custom/custom-05.jpg",
+    "images/portfolio/custom/custom-06.jpg",
+    "images/portfolio/custom/custom-07.jpg"
+  ],
   roman: ["images/shtory3.jpg", "images/shtory4.jpg", "images/shtory1.jpg", "images/shtory2.jpg", "images/shtory5.jpg"]
 };
 
@@ -489,88 +497,25 @@ function updateCounter() {
   }
 }
 
-let activeVideoObjectUrl = null;
-let mediaLoadToken = 0;
-
-function releaseVideoObjectUrl() {
-  const video = document.getElementById("lightbox-video");
-  if (video) {
-    video.pause();
-    video.removeAttribute("src");
-    video.load();
-  }
-  if (activeVideoObjectUrl) {
-    URL.revokeObjectURL(activeVideoObjectUrl);
-    activeVideoObjectUrl = null;
-  }
-}
-
-async function showMedia(src) {
+function showMedia(src) {
   const img = document.getElementById("lightbox-img");
   const video = document.getElementById("lightbox-video");
-  const token = ++mediaLoadToken;
 
   const isVideo = /\.mp4(?:[?#].*)?$/i.test(src);
 
-  if (!isVideo) {
-    releaseVideoObjectUrl();
+  if (isVideo) {
+    img.style.display = "none";
+    img.removeAttribute("src");
+    video.style.display = "block";
+    video.src = src;
+    video.load();
+  } else {
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
     video.style.display = "none";
     img.style.display = "block";
     img.src = src;
-    return;
-  }
-
-  img.style.display = "none";
-  img.removeAttribute("src");
-
-  releaseVideoObjectUrl();
-  video.style.display = "block";
-  video.controls = true;
-  video.playsInline = true;
-  video.preload = "auto";
-  video.setAttribute("controls", "");
-  video.setAttribute("playsinline", "");
-
-  /*
-    Для відео завантажуємо файл як Blob.
-    Це обходить проблеми CDN/Range-запитів для окремих MP4:
-    браузер отримує один повний файл, після чого <video> відтворює
-    його локально через blob: URL.
-  */
-  try {
-    const response = await fetch(src, {
-      method: "GET",
-      cache: "no-store",
-      credentials: "same-origin"
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
-    }
-
-    const blob = await response.blob();
-
-    if (token !== mediaLoadToken) return;
-
-    if (!blob.type || !blob.type.toLowerCase().includes("video")) {
-      throw new Error("Файл не визначився як відео");
-    }
-
-    activeVideoObjectUrl = URL.createObjectURL(blob);
-    video.src = activeVideoObjectUrl;
-    video.load();
-
-  } catch (error) {
-    if (token !== mediaLoadToken) return;
-
-    /*
-      Резервний варіант: якщо fetch/Blob не спрацював,
-      повертаємо пряме завантаження MP4.
-    */
-    video.src = src;
-    video.load();
-
-    console.warn("Не вдалося завантажити MP4 через Blob:", error);
   }
 }
 
@@ -590,8 +535,12 @@ function openPortfolio(type) {
 function closeLightbox(e) {
   if (e) e.stopPropagation();
 
-  mediaLoadToken++;
-  releaseVideoObjectUrl();
+  const video = document.getElementById("lightbox-video");
+  if (video) {
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
+  }
 
   currentPortfolio = [];
   currentIndex = 0;
