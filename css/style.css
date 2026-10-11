@@ -1562,3 +1562,79 @@ h2,
     font-weight: 700;
   }
 }
+
+
+
+/* ОСНОВНІ ЗАГОЛОВКИ СЕКЦІЙ — більші та значно жирніші */
+#about h2,
+#why-us h2,
+#works h2,
+#fabrics h2,
+#contact h2,
+section#about h2,
+section#why-us h2,
+section#works h2,
+section#fabrics h2,
+section#contact h2,
+.about h2,
+.why-us h2,
+.works h2,
+.fabrics h2,
+.contact h2,
+.section-title,
+.section-heading {
+  font-size: clamp(2.45rem, 4.6vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.28);
+}
+
+@media (max-width: 860px) {
+  #about h2,
+  #why-us h2,
+  #works h2,
+  #fabrics h2,
+  #contact h2,
+  section#about h2,
+  section#why-us h2,
+  section#works h2,
+  section#fabrics h2,
+  section#contact h2,
+  .about h2,
+  .why-us h2,
+  .works h2,
+  .fabrics h2,
+  .contact h2,
+  .section-title,
+  .section-heading {
+    font-size: clamp(2.1rem, 6vw, 3rem);
+    font-weight: 900;
+    line-height: 1.1;
+  }
+}
+
+@media (max-width: 480px) {
+  #about h2,
+  #why-us h2,
+  #works h2,
+  #fabrics h2,
+  #contact h2,
+  section#about h2,
+  section#why-us h2,
+  section#works h2,
+  section#fabrics h2,
+  section#contact h2,
+  .about h2,
+  .why-us h2,
+  .works h2,
+  .fabrics h2,
+  .contact h2,
+  .section-title,
+  .section-heading {
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+}
