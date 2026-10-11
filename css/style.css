@@ -178,10 +178,11 @@ h3 {
 }
 
 .site-nav a {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.86rem;
-  font-weight: 400;
-  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.035em;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
 }
 
 .site-nav a:hover {
@@ -223,9 +224,10 @@ h3 {
   padding: 12px 22px;
   border: 1px solid var(--gold);
   border-radius: 5px;
-  font-size: 0.86rem;
-  font-weight: 500;
-  letter-spacing: 0.03em;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.025em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
   transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 
