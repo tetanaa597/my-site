@@ -34,7 +34,10 @@
 
 <header class="site-header">
   <div class="header-inner">
-    <button class="logo" type="button" onclick="window.location.reload()" aria-label="Оновити сторінку TAYANA" title="Оновити сторінку">
+    <button class="logo" type="button"
+      onclick="sessionStorage.setItem('tayanaRefreshToTop', '1'); if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; window.location.reload();"
+      aria-label="Оновити сторінку TAYANA та перейти нагору"
+      title="Оновити сторінку й перейти нагору">
       <span>TAYANA</span>
     </button>
 
@@ -434,6 +437,16 @@
 const navToggle = document.querySelector(".nav-toggle");
 const header = document.querySelector(".site-header");
 const siteNav = document.getElementById("site-nav");
+
+/* Після натискання TAYANA відновлюємо сторінку на самому верху.
+   Працює на десктопах, телефонах і планшетах. */
+if (sessionStorage.getItem("tayanaRefreshToTop") === "1") {
+  sessionStorage.removeItem("tayanaRefreshToTop");
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+  window.scrollTo(0, 0);
+}
 
 navToggle.addEventListener("click", () => {
   const open = header.classList.toggle("is-open");
