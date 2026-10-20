@@ -1809,3 +1809,235 @@ section h2,
     padding: 13px 20px;
   }
 }
+
+
+/* ==========================================================
+   TAYANA — наступне узгоджене збільшення типографіки
+   Заголовки секцій, CTA-банер, контакти та весь футер.
+   Зберігає палітру, розташування й адаптивність сайту.
+   ========================================================== */
+
+/* Мітки секцій: «Про нас», «Чому обирають нас», «Наші роботи», «Тканини», «Контакти» */
+section .eyebrow,
+.section .eyebrow {
+  font-size: clamp(1rem, 1.35vw, 1.18rem) !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.24em !important;
+}
+
+/* Основні заголовки розділів — наступне пропорційне збільшення */
+#about h2,
+#why-us h2,
+#works h2,
+#fabrics h2,
+#contact h2,
+section#about h2,
+section#why-us h2,
+section#works h2,
+section#fabrics h2,
+section#contact h2,
+.about h2,
+.why-us h2,
+.works h2,
+.fabrics h2,
+.contact h2,
+section h2.section-title,
+section h2.section-heading {
+  font-size: clamp(3.15rem, 5.8vw, 4.8rem) !important;
+  line-height: 1.08 !important;
+  font-weight: 900 !important;
+}
+
+/* Текст під закликом до дії */
+.cta-banner p,
+.cta-banner .cta-text,
+.cta-banner .cta-copy,
+.cta-banner .cta-description {
+  font-size: clamp(1.15rem, 1.7vw, 1.45rem) !important;
+  line-height: 1.7 !important;
+}
+
+/* Кнопка «Отримати консультацію» в CTA-банері */
+.cta-banner .btn,
+.cta-banner a.btn,
+.cta-banner .button {
+  font-size: clamp(1.12rem, 1.45vw, 1.3rem) !important;
+  line-height: 1.4 !important;
+  min-height: 58px;
+  padding: 16px 30px !important;
+}
+
+/* Контакти: заголовки, підписи й дані */
+#contact .contact-col h3,
+#contact .contact-card h3,
+#contact .contact-section h3,
+.contact-section .contact-col h3,
+.contact-section .contact-card h3 {
+  font-size: clamp(1.25rem, 1.8vw, 1.55rem) !important;
+  line-height: 1.4 !important;
+}
+
+#contact .contact-col p,
+#contact .contact-col a,
+#contact .contact-card p,
+#contact .contact-card a,
+#contact .contact-section p,
+#contact .contact-section a,
+.contact-section .contact-col p,
+.contact-section .contact-col a {
+  font-size: clamp(1.08rem, 1.45vw, 1.25rem) !important;
+  line-height: 1.75 !important;
+}
+
+/* Футер — усі основні написи збільшені узгоджено */
+.site-footer .footer-copy,
+.site-footer .footer-contact-label,
+.site-footer .footer-messengers-label,
+.site-footer .footer-legal a,
+.site-footer .footer-tagline,
+.site-footer .footer-bar,
+.site-footer .footer-social a,
+.site-footer p,
+.site-footer a {
+  font-size: clamp(1rem, 1.3vw, 1.16rem) !important;
+  line-height: 1.7 !important;
+}
+
+.site-footer .footer-contact-label,
+.site-footer .footer-messengers-label {
+  letter-spacing: 0.09em;
+}
+
+.site-footer .footer-phone,
+.site-footer .footer-phone a {
+  font-size: clamp(1.55rem, 2.2vw, 1.95rem) !important;
+  line-height: 1.4 !important;
+  font-weight: 800 !important;
+}
+
+.site-footer .footer-legal a {
+  font-weight: 700 !important;
+}
+
+@media (max-width: 860px) {
+  #about h2,
+  #why-us h2,
+  #works h2,
+  #fabrics h2,
+  #contact h2,
+  section#about h2,
+  section#why-us h2,
+  section#works h2,
+  section#fabrics h2,
+  section#contact h2,
+  .about h2,
+  .why-us h2,
+  .works h2,
+  .fabrics h2,
+  .contact h2,
+  section h2.section-title,
+  section h2.section-heading {
+    font-size: clamp(2.65rem, 7.5vw, 3.7rem) !important;
+    line-height: 1.1 !important;
+  }
+
+  .cta-banner p,
+  .cta-banner .cta-text,
+  .cta-banner .cta-copy,
+  .cta-banner .cta-description {
+    font-size: 1.18rem !important;
+  }
+
+  .site-footer .footer-copy,
+  .site-footer .footer-contact-label,
+  .site-footer .footer-messengers-label,
+  .site-footer .footer-legal a,
+  .site-footer .footer-tagline,
+  .site-footer .footer-bar,
+  .site-footer .footer-social a,
+  .site-footer p,
+  .site-footer a {
+    font-size: 1.02rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  section .eyebrow,
+  .section .eyebrow {
+    font-size: 0.98rem !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  #about h2,
+  #why-us h2,
+  #works h2,
+  #fabrics h2,
+  #contact h2,
+  section#about h2,
+  section#why-us h2,
+  section#works h2,
+  section#fabrics h2,
+  section#contact h2,
+  .about h2,
+  .why-us h2,
+  .works h2,
+  .fabrics h2,
+  .contact h2,
+  section h2.section-title,
+  section h2.section-heading {
+    font-size: clamp(2.3rem, 9vw, 3rem) !important;
+    line-height: 1.12 !important;
+  }
+
+  .cta-banner p,
+  .cta-banner .cta-text,
+  .cta-banner .cta-copy,
+  .cta-banner .cta-description {
+    font-size: 1.08rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .cta-banner .btn,
+  .cta-banner a.btn,
+  .cta-banner .button {
+    font-size: 1.08rem !important;
+    padding: 14px 20px !important;
+    min-height: 54px;
+  }
+
+  #contact .contact-col h3,
+  #contact .contact-card h3,
+  #contact .contact-section h3,
+  .contact-section .contact-col h3,
+  .contact-section .contact-card h3 {
+    font-size: 1.2rem !important;
+  }
+
+  #contact .contact-col p,
+  #contact .contact-col a,
+  #contact .contact-card p,
+  #contact .contact-card a,
+  #contact .contact-section p,
+  #contact .contact-section a,
+  .contact-section .contact-col p,
+  .contact-section .contact-col a {
+    font-size: 1.05rem !important;
+  }
+
+  .site-footer .footer-phone,
+  .site-footer .footer-phone a {
+    font-size: 1.5rem !important;
+  }
+
+  .site-footer .footer-copy,
+  .site-footer .footer-contact-label,
+  .site-footer .footer-messengers-label,
+  .site-footer .footer-legal a,
+  .site-footer .footer-tagline,
+  .site-footer .footer-bar,
+  .site-footer .footer-social a,
+  .site-footer p,
+  .site-footer a {
+    font-size: 0.98rem !important;
+  }
+}
