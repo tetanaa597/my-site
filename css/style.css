@@ -2043,13 +2043,13 @@ section h2.section-heading {
 }
 
 
-/* TAYANA — вище розташування логотипа на мобільних екранах */
+/* TAYANA — помірне підняття логотипа на мобільних екранах */
 @media (max-width: 860px) {
   .hero .hero-content .hero-brand,
   .hero-content .hero-brand,
   .hero-brand {
     position: relative !important;
-    top: -102px !important;
+    top: -68px !important;
   }
 }
 
@@ -2057,6 +2057,6 @@ section h2.section-heading {
   .hero .hero-content .hero-brand,
   .hero-content .hero-brand,
   .hero-brand {
-    top: -144px !important;
+    top: -96px !important;
   }
 }
