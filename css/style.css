@@ -1686,56 +1686,50 @@ section h2,
 
 
 
-/* Відчутно більший розмір шрифтів верхньої панелі TAYANA */
+/* Збільшений шрифт усієї верхньої панелі TAYANA */
 .site-header .logo {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.05rem;
+  font-weight: 800;
   letter-spacing: 0.13em;
 }
 
-.site-header .site-nav {
-  gap: clamp(14px, 1.6vw, 24px);
-}
-
 .site-header .site-nav a {
-  font-size: 1.16rem;
-  font-weight: 700;
-  letter-spacing: 0.015em;
-  line-height: 1.25;
+  font-size: 1.02rem;
+  font-weight: 800;
+  letter-spacing: 0.025em;
 }
 
 .site-header .header-cta {
-  font-size: 1.1rem;
-  font-weight: 700;
-  line-height: 1.25;
-  padding: 14px 20px;
+  font-size: 1rem;
+  font-weight: 800;
+  padding-inline: 20px;
 }
 
-/* На середніх екранах зберігаємо місце для всіх пунктів меню */
+/* На середніх екранах зберігаємо меню компактним, але читабельним */
 @media (min-width: 861px) and (max-width: 1100px) {
   .site-header .header-inner {
-    gap: 14px;
+    gap: 16px;
     width: min(100% - 28px, 1280px);
   }
 
   .site-header .site-nav {
-    gap: 12px;
+    gap: 14px;
   }
 
   .site-header .site-nav a {
-    font-size: 1.02rem;
+    font-size: 0.94rem;
   }
 
   .site-header .header-cta {
-    font-size: 0.98rem;
-    padding: 12px 13px;
+    font-size: 0.9rem;
+    padding-inline: 14px;
   }
 }
 
-/* Більші написи у розкритому мобільному меню */
+/* Збільшені написи у розкритому мобільному меню */
 @media (max-width: 860px) {
   .site-header .logo {
-    font-size: 1.18rem;
+    font-size: 1rem;
   }
 
   .site-header .site-nav {
@@ -1743,21 +1737,75 @@ section h2,
   }
 
   .site-header .site-nav a {
-    font-size: 1.28rem;
-    font-weight: 700;
-    letter-spacing: 0.015em;
-    line-height: 1.35;
-    padding-block: 15px;
+    font-size: 1.12rem;
+    font-weight: 800;
+    letter-spacing: 0.025em;
+    padding-block: 14px;
   }
 }
 
 @media (max-width: 480px) {
   .site-header .logo {
-    font-size: 1.12rem;
-    letter-spacing: 0.11em;
+    font-size: 0.98rem;
+    letter-spacing: 0.12em;
   }
 
   .site-header .site-nav a {
-    font-size: 1.22rem;
+    font-size: 1.08rem;
+  }
+}
+
+
+/* ==========================================================
+   TAYANA — пропорційно збільшена типографіка першого екрана
+   Збільшуються лише три потрібні написи; решта стилів збережена.
+   ========================================================== */
+.hero .hero-content .hero-accent {
+  font-size: clamp(1.4rem, 2.6vw, 1.95rem) !important;
+  line-height: 1.42 !important;
+}
+
+.hero .hero-content .hero-features {
+  font-size: clamp(1.2rem, 1.8vw, 1.42rem) !important;
+  line-height: 1.65 !important;
+}
+
+.hero .hero-content > .btn {
+  font-size: clamp(1.05rem, 1.35vw, 1.22rem) !important;
+  min-height: 54px;
+  padding: 14px 27px;
+}
+
+@media (max-width: 860px) {
+  .hero .hero-content .hero-accent {
+    font-size: clamp(1.35rem, 3.4vw, 1.75rem) !important;
+  }
+
+  .hero .hero-content .hero-features {
+    font-size: clamp(1.12rem, 2.6vw, 1.32rem) !important;
+  }
+
+  .hero .hero-content > .btn {
+    font-size: 1.12rem !important;
+    min-height: 54px;
+    padding: 14px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero .hero-content .hero-accent {
+    font-size: 1.3rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .hero .hero-content .hero-features {
+    font-size: 1.08rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .hero .hero-content > .btn {
+    font-size: 1.08rem !important;
+    min-height: 52px;
+    padding: 13px 20px;
   }
 }
