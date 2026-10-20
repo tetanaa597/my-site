@@ -1675,3 +1675,11 @@ section h2,
     line-height: 1.12 !important;
   }
 }
+
+/* TAYANA — трохи вище на мобільних екранах */
+@media (max-width: 480px) {
+  .hero .hero-content .hero-brand {
+    position: relative;
+    top: -14px;
+  }
+}
