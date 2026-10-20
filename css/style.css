@@ -2049,7 +2049,7 @@ section h2.section-heading {
   .hero-content .hero-brand,
   .hero-brand {
     position: relative !important;
-    top: -34px !important;
+    top: -102px !important;
   }
 }
 
@@ -2057,6 +2057,6 @@ section h2.section-heading {
   .hero .hero-content .hero-brand,
   .hero-content .hero-brand,
   .hero-brand {
-    top: -48px !important;
+    top: -144px !important;
   }
 }
