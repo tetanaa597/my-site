@@ -1,3 +1,36 @@
+/* TAYANA — збільшені підписи всіх основних розділів */
+#about > .container > .eyebrow,
+#services > .container > .eyebrow,
+#works > .container > .eyebrow,
+#fabrics > .container > .eyebrow,
+#contact > .container > .eyebrow {
+  font-size: clamp(1.35rem, 2.1vw, 1.75rem) !important;
+  line-height: 1.35 !important;
+  letter-spacing: 0.22em !important;
+  font-weight: 600 !important;
+}
+
+@media (max-width: 860px) {
+  #about > .container > .eyebrow,
+  #services > .container > .eyebrow,
+  #works > .container > .eyebrow,
+  #fabrics > .container > .eyebrow,
+  #contact > .container > .eyebrow {
+    font-size: clamp(1.2rem, 3.5vw, 1.55rem) !important;
+    letter-spacing: 0.18em !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #about > .container > .eyebrow,
+  #services > .container > .eyebrow,
+  #works > .container > .eyebrow,
+  #fabrics > .container > .eyebrow,
+  #contact > .container > .eyebrow {
+    font-size: clamp(1.1rem, 4.5vw, 1.35rem) !important;
+    letter-spacing: 0.15em !important;
+  }
+}
 
 :root {
   --bg: #0b0a09;
