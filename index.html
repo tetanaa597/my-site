@@ -636,6 +636,7 @@ function openPortfolio(type) {
   if (!currentPortfolio.length) return;
 
   const lightbox = document.getElementById("lightbox");
+  lightbox.classList.remove("business-card-view");
   showMedia(currentPortfolio[currentIndex]);
   updateCounter();
   lightbox.style.display = "flex";
@@ -648,6 +649,7 @@ function openBusinessCard() {
   currentIndex = 0;
 
   const lightbox = document.getElementById("lightbox");
+  lightbox.classList.add("business-card-view");
   showMedia(currentPortfolio[currentIndex]);
   updateCounter();
   lightbox.style.display = "flex";
