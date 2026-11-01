@@ -2365,3 +2365,74 @@ section h2.section-heading {
     transition: none;
   }
 }
+
+
+/* Lightbox: масштабування візитки та фото на комп'ютері */
+#lightbox-img {
+  max-width: 92vw;
+  max-height: 88vh;
+  object-fit: contain;
+  transform: scale(1);
+  transform-origin: center center;
+  transition: transform 0.18s ease;
+  cursor: zoom-in;
+  user-select: none;
+}
+
+#lightbox-img.is-zoomed {
+  cursor: zoom-out;
+  max-width: none;
+  max-height: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #lightbox-img.is-zoomed {
+    max-width: 92vw;
+    max-height: 88vh;
+  }
+}
+
+/* На телефоні повністю відокремлюємо логотип від фото-візитки.
+   Скидаємо старі top/transform, які могли візуально зсувати його на зображення. */
+@media (max-width: 860px) {
+  .hero-layout {
+    gap: 46px !important;
+  }
+
+  .hero-layout .hero-content {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .hero-layout .hero-brand {
+    position: static !important;
+    inset: auto !important;
+    top: auto !important;
+    transform: none !important;
+    display: block;
+    clear: both;
+    margin: 0 0 22px !important;
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-layout {
+    gap: 52px !important;
+  }
+
+  .hero-layout .hero-content {
+    margin-top: 0 !important;
+  }
+
+  .hero-layout .hero-brand {
+    position: static !important;
+    top: auto !important;
+    transform: none !important;
+    margin: 0 0 20px !important;
+    line-height: 0.95 !important;
+  }
+}
