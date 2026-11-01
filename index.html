@@ -63,7 +63,10 @@
 <section class="hero">
   <div class="hero-overlay"></div>
   <div class="container hero-layout">
-    <figure class="hero-card">
+    <button class="hero-card" type="button"
+      onclick="openBusinessCard()"
+      aria-label="Відкрити візитку TAYANA на весь екран"
+      title="Натисніть, щоб збільшити візитку">
       <img
         src="images/card.jpg"
         alt="Візитка дизайнера штор TAYANA — Тетяна Анісімова"
@@ -71,7 +74,8 @@
         fetchpriority="high"
         width="819"
         height="1280">
-    </figure>
+      <span class="hero-card-hint" aria-hidden="true">Натисніть, щоб збільшити</span>
+    </button>
 
     <div class="hero-content">
       <p class="hero-brand">TAYANA</p>
@@ -629,6 +633,18 @@ function openPortfolio(type) {
   currentIndex = 0;
 
   if (!currentPortfolio.length) return;
+
+  const lightbox = document.getElementById("lightbox");
+  showMedia(currentPortfolio[currentIndex]);
+  updateCounter();
+  lightbox.style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+
+/* Відкриття фото-візитки у тому ж повноекранному переглядачі, що й портфоліо */
+function openBusinessCard() {
+  currentPortfolio = ["images/card.jpg"];
+  currentIndex = 0;
 
   const lightbox = document.getElementById("lightbox");
   showMedia(currentPortfolio[currentIndex]);
