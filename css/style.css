@@ -2611,3 +2611,41 @@ section h2.section-heading {
     margin-top: 0 !important;
   }
 }
+
+
+/* ВІЗИТКА: приховуємо лічильник «1 / 1» у повноекранному режимі
+   на комп'ютері, планшеті й телефоні. Лічильники портфоліо не змінюємо. */
+#lightbox.business-card-view #lightbox-counter {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* МОБІЛЬНА ВЕРСІЯ: опускаємо TAYANA та весь текстовий блок нижче візитки.
+   Великий проміжок не дає логотипу накладатися на зображення. */
+@media (max-width: 860px) {
+  .hero-layout .hero-card {
+    margin-bottom: 104px !important;
+  }
+
+  .hero-layout .hero-content {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .hero-layout .hero-brand {
+    position: static !important;
+    margin-top: 0 !important;
+    margin-bottom: 22px !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-layout .hero-card {
+    margin-bottom: 112px !important;
+  }
+
+  .hero-layout .hero-brand {
+    margin-bottom: 22px !important;
+  }
+}
