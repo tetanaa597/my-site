@@ -658,6 +658,8 @@ let lightboxZoom = 1;
 let lightboxPanX = 0;
 let lightboxPanY = 0;
 let lightboxDragging = false;
+let lightboxDidDrag = false;
+let lightboxSuppressClick = false;
 let lightboxDragStartX = 0;
 let lightboxDragStartY = 0;
 let lightboxStartPanX = 0;
@@ -681,6 +683,10 @@ function setLightboxZoom(value) {
 
 function toggleLightboxZoom(e) {
   e.stopPropagation();
+  if (lightboxSuppressClick) {
+    lightboxSuppressClick = false;
+    return;
+  }
   if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     setLightboxZoom(lightboxZoom > 1 ? 1 : 2);
   }
@@ -707,6 +713,7 @@ lightboxImage.addEventListener("pointerdown", (e) => {
   e.preventDefault();
   e.stopPropagation();
   lightboxDragging = true;
+  lightboxDidDrag = false;
   lightboxDragStartX = e.clientX;
   lightboxDragStartY = e.clientY;
   lightboxStartPanX = lightboxPanX;
@@ -718,6 +725,9 @@ lightboxImage.addEventListener("pointerdown", (e) => {
 lightboxImage.addEventListener("pointermove", (e) => {
   if (!lightboxDragging) return;
   e.preventDefault();
+  if (Math.abs(e.clientX - lightboxDragStartX) > 3 || Math.abs(e.clientY - lightboxDragStartY) > 3) {
+    lightboxDidDrag = true;
+  }
   lightboxPanX = lightboxStartPanX + (e.clientX - lightboxDragStartX);
   lightboxPanY = lightboxStartPanY + (e.clientY - lightboxDragStartY);
   applyLightboxTransform();
@@ -726,6 +736,10 @@ lightboxImage.addEventListener("pointermove", (e) => {
 function stopLightboxDrag(e) {
   if (!lightboxDragging) return;
   lightboxDragging = false;
+  if (lightboxDidDrag) {
+    lightboxSuppressClick = true;
+    window.setTimeout(() => { lightboxSuppressClick = false; }, 250);
+  }
   if (e && lightboxImage.hasPointerCapture(e.pointerId)) {
     lightboxImage.releasePointerCapture(e.pointerId);
   }
@@ -780,7 +794,13 @@ document.addEventListener("keydown", (e) => {
   if (lightbox.style.display === "flex") {
     if (e.key === "ArrowRight") nextImage(e);
     if (e.key === "ArrowLeft") prevImage(e);
-    if (e.key === "Escape") closeLightbox();
+    if (e.key === "Escape") {
+      if (lightboxZoom > 1) {
+        setLightboxZoom(1);
+      } else {
+        closeLightbox();
+      }
+    }
   }
 });
 
