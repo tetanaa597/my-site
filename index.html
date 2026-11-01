@@ -436,7 +436,7 @@
   <span class="close" onclick="closeLightbox(event)" aria-label="Закрити">✕</span>
   <span class="nav prev" onclick="prevImage(event)" aria-label="Попереднє">❮</span>
 
-  <img id="lightbox-img" src="" alt="Фото роботи" onclick="event.stopPropagation()">
+  <img id="lightbox-img" src="" alt="Фото роботи" onclick="toggleLightboxZoom(event)" ondblclick="resetLightboxZoom(event)">
 
   <video
     id="lightbox-video"
@@ -607,6 +607,7 @@ function updateCounter() {
 }
 
 function showMedia(src) {
+  setLightboxZoom(1);
   const img = document.getElementById("lightbox-img");
   const video = document.getElementById("lightbox-video");
 
@@ -653,8 +654,42 @@ function openBusinessCard() {
   document.body.style.overflow = "hidden";
 }
 
+let lightboxZoom = 1;
+
+function setLightboxZoom(value) {
+  const img = document.getElementById("lightbox-img");
+  lightboxZoom = Math.max(1, Math.min(3, value));
+  img.style.transform = `scale(${lightboxZoom})`;
+  img.classList.toggle("is-zoomed", lightboxZoom > 1);
+  img.style.cursor = lightboxZoom > 1 ? "zoom-out" : "zoom-in";
+}
+
+function toggleLightboxZoom(e) {
+  e.stopPropagation();
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    setLightboxZoom(lightboxZoom > 1 ? 1 : 2);
+  }
+}
+
+function resetLightboxZoom(e) {
+  e.stopPropagation();
+  setLightboxZoom(1);
+}
+
+function handleLightboxWheel(e) {
+  const lightbox = document.getElementById("lightbox");
+  const img = document.getElementById("lightbox-img");
+  if (lightbox.style.display !== "flex" || img.style.display === "none") return;
+  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+  e.preventDefault();
+  setLightboxZoom(lightboxZoom + (e.deltaY < 0 ? 0.25 : -0.25));
+}
+
+document.getElementById("lightbox").addEventListener("wheel", handleLightboxWheel, { passive: false });
+
 function closeLightbox(e) {
   if (e) e.stopPropagation();
+  setLightboxZoom(1);
 
   const video = document.getElementById("lightbox-video");
   if (video) {
